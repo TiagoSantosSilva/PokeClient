@@ -9,17 +9,15 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
+    private let dataManager = DataManager(baseUrl: API.BaseUrl)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        dataManager.statusData { (response, error) in
+            print(response ?? "🤨")
+        }
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-
 }
 
