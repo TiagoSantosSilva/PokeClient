@@ -9,11 +9,11 @@
 /* Begin PBXBuildFile section */
 		27FA73F220128FD5006D4B04 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FA73F120128FD5006D4B04 /* AppDelegate.swift */; };
 		27FA73F420128FD5006D4B04 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FA73F320128FD5006D4B04 /* ViewController.swift */; };
-		27FA73F720128FD5006D4B04 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27FA73F520128FD5006D4B04 /* Main.storyboard */; };
 		27FA73F920128FD5006D4B04 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27FA73F820128FD5006D4B04 /* Assets.xcassets */; };
-		27FA73FC20128FD5006D4B04 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27FA73FA20128FD5006D4B04 /* LaunchScreen.storyboard */; };
 		27FA740720128FD5006D4B04 /* PokeClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FA740620128FD5006D4B04 /* PokeClientTests.swift */; };
 		27FA741220128FD6006D4B04 /* PokeClientUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FA741120128FD6006D4B04 /* PokeClientUITests.swift */; };
+		27FA742520129060006D4B04 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27FA742420129060006D4B04 /* Main.storyboard */; };
+		27FA742720129069006D4B04 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27FA742620129069006D4B04 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,9 +37,7 @@
 		27FA73EE20128FD5006D4B04 /* PokeClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PokeClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		27FA73F120128FD5006D4B04 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		27FA73F320128FD5006D4B04 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		27FA73F620128FD5006D4B04 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		27FA73F820128FD5006D4B04 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		27FA73FB20128FD5006D4B04 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		27FA73FD20128FD5006D4B04 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		27FA740220128FD5006D4B04 /* PokeClientTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PokeClientTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		27FA740620128FD5006D4B04 /* PokeClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeClientTests.swift; sourceTree = "<group>"; };
@@ -47,6 +45,8 @@
 		27FA740D20128FD6006D4B04 /* PokeClientUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PokeClientUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		27FA741120128FD6006D4B04 /* PokeClientUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeClientUITests.swift; sourceTree = "<group>"; };
 		27FA741320128FD6006D4B04 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		27FA742420129060006D4B04 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		27FA742620129069006D4B04 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,12 +97,11 @@
 		27FA73F020128FD5006D4B04 /* PokeClient */ = {
 			isa = PBXGroup;
 			children = (
-				27FA73F120128FD5006D4B04 /* AppDelegate.swift */,
-				27FA73F320128FD5006D4B04 /* ViewController.swift */,
-				27FA73F520128FD5006D4B04 /* Main.storyboard */,
-				27FA73F820128FD5006D4B04 /* Assets.xcassets */,
-				27FA73FA20128FD5006D4B04 /* LaunchScreen.storyboard */,
-				27FA73FD20128FD5006D4B04 /* Info.plist */,
+				27FA741F20128FDF006D4B04 /* Application Delegate */,
+				27FA742220129040006D4B04 /* Resources */,
+				27FA742120129038006D4B04 /* Storyboards */,
+				27FA742320129046006D4B04 /* Supporting Files */,
+				27FA742020129033006D4B04 /* View Controllers */,
 			);
 			path = PokeClient;
 			sourceTree = "<group>";
@@ -123,6 +122,47 @@
 				27FA741320128FD6006D4B04 /* Info.plist */,
 			);
 			path = PokeClientUITests;
+			sourceTree = "<group>";
+		};
+		27FA741F20128FDF006D4B04 /* Application Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				27FA73F120128FD5006D4B04 /* AppDelegate.swift */,
+			);
+			path = "Application Delegate";
+			sourceTree = "<group>";
+		};
+		27FA742020129033006D4B04 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				27FA73F320128FD5006D4B04 /* ViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		27FA742120129038006D4B04 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				27FA742420129060006D4B04 /* Main.storyboard */,
+				27FA742620129069006D4B04 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		27FA742220129040006D4B04 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				27FA73F820128FD5006D4B04 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		27FA742320129046006D4B04 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				27FA73FD20128FD5006D4B04 /* Info.plist */,
+			);
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -232,9 +272,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				27FA73FC20128FD5006D4B04 /* LaunchScreen.storyboard in Resources */,
+				27FA742720129069006D4B04 /* LaunchScreen.storyboard in Resources */,
 				27FA73F920128FD5006D4B04 /* Assets.xcassets in Resources */,
-				27FA73F720128FD5006D4B04 /* Main.storyboard in Resources */,
+				27FA742520129060006D4B04 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -294,25 +334,6 @@
 			targetProxy = 27FA740E20128FD6006D4B04 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		27FA73F520128FD5006D4B04 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				27FA73F620128FD5006D4B04 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		27FA73FA20128FD5006D4B04 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				27FA73FB20128FD5006D4B04 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		27FA741420128FD6006D4B04 /* Debug */ = {
@@ -428,7 +449,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 64E8842TP6;
-				INFOPLIST_FILE = PokeClient/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/PokeClient/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Tiago-Santos.PokeClient";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -443,7 +464,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 64E8842TP6;
-				INFOPLIST_FILE = PokeClient/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/PokeClient/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Tiago-Santos.PokeClient";
 				PRODUCT_NAME = "$(TARGET_NAME)";
