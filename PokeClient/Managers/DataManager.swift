@@ -8,15 +8,9 @@
 
 import Foundation
 
-enum DataManagerError: Error {
-    case Unknown
-    case FailedRequest
-    case InvalidResponse
-}
-
 final class DataManager {
     
-    typealias StatusDataCompletion = (AnyObject?, DataManagerError?) -> ()
+    typealias DataCompletion = (AnyObject?, DataManagerError?) -> ()
     
     let baseUrl: URL
     
@@ -24,11 +18,11 @@ final class DataManager {
         self.baseUrl = baseUrl
     }
     
-    func statusData(completion: @escaping StatusDataCompletion) {
+    func statusData(completion: @escaping DataCompletion) {
         let URL = baseUrl.appendingPathComponent("Status")
         
         URLSession.shared.dataTask(with: URL) { (data, response, error) in
-            self.didFetchStatusData(data: data, response: response, error: error, completion: completion)
+            self.didFetchData(data: data, response: response, error: error, completion: completion)
         }.resume()
     }
     
@@ -40,7 +34,7 @@ final class DataManager {
         // let URL = baseUrl.appendingPathComponent("Pokemons/\(id)")
     }
     
-    private func didFetchStatusData(data: Data?, response: URLResponse?, error: Error?, completion: StatusDataCompletion) {
+    private func didFetchData(data: Data?, response: URLResponse?, error: Error?, completion: DataCompletion) {
         guard error == nil else {
             completion(nil, .FailedRequest)
             return
@@ -57,15 +51,15 @@ final class DataManager {
             return
         }
         
-        processStatusData(data: data, completion: completion)
+        processData(data: data, completion: completion)
     }
     
-    private func processStatusData(data: Data, completion: StatusDataCompletion) {
-        guard let json = try? JSONSerialization.jsonObject(with: data, options: []) as AnyObject else {
+    private func processData(data: Data, completion: DataCompletion) {
+        guard let data = try? JSONDecoder().decode([Status].self, from: data) as AnyObject else {
             completion(nil, .InvalidResponse)
             return
         }
         
-        completion(json, nil)
+        completion(data, nil)
     }
 }
