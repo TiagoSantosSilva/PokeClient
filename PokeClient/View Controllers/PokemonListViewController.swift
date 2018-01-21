@@ -36,5 +36,13 @@ extension PokemonListViewController {
             NSAttributedStringKey.foregroundColor: UIColor.white,
             NSAttributedStringKey.font: UIFont(name: "AvenirNext-Bold", size: 40)!
         ]
+        
+        let newPokemonButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(newPokemonButtonTapped))
+        newPokemonButton.tintColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        navigationItem.rightBarButtonItem = newPokemonButton
+    }
+    
+    @objc func newPokemonButtonTapped() {
+        print("New pokemon button was tapped.")
     }
 }
