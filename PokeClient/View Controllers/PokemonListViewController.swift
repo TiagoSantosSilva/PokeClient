@@ -43,6 +43,7 @@ extension PokemonListViewController {
     }
     
     @objc func newPokemonButtonTapped() {
-        print("New pokemon button was tapped.")
+        let newPokemonViewController = NewPokemonViewController()
+        present(newPokemonViewController, animated: true, completion: nil)
     }
 }
