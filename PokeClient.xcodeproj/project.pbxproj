@@ -12,8 +12,9 @@
 		279F59152014C24200539A91 /* LoadingScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279F59132014C24200539A91 /* LoadingScreenViewController.swift */; };
 		279F59162014C24200539A91 /* LoadingScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 279F59142014C24200539A91 /* LoadingScreenViewController.xib */; };
 		279F591B2014F35800539A91 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279F591A2014F35800539A91 /* UIColorExtension.swift */; };
-		279F59202014F78200539A91 /* UIAlertControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279F591F2014F78200539A91 /* UIAlertControllerExtension.swift */; };
 		279F59222014FA1400539A91 /* PokemonListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 279F59212014FA1400539A91 /* PokemonListViewController.xib */; };
+		279F59282015233600539A91 /* PokemonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279F59262015233600539A91 /* PokemonCell.swift */; };
+		279F59292015233600539A91 /* PokemonCellTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 279F59272015233600539A91 /* PokemonCellTableViewCell.xib */; };
 		27FA73F220128FD5006D4B04 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FA73F120128FD5006D4B04 /* AppDelegate.swift */; };
 		27FA73F420128FD5006D4B04 /* PokemonListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FA73F320128FD5006D4B04 /* PokemonListViewController.swift */; };
 		27FA73F920128FD5006D4B04 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27FA73F820128FD5006D4B04 /* Assets.xcassets */; };
@@ -51,8 +52,9 @@
 		279F59132014C24200539A91 /* LoadingScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingScreenViewController.swift; sourceTree = "<group>"; };
 		279F59142014C24200539A91 /* LoadingScreenViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingScreenViewController.xib; sourceTree = "<group>"; };
 		279F591A2014F35800539A91 /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
-		279F591F2014F78200539A91 /* UIAlertControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertControllerExtension.swift; sourceTree = "<group>"; };
 		279F59212014FA1400539A91 /* PokemonListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PokemonListViewController.xib; sourceTree = "<group>"; };
+		279F59262015233600539A91 /* PokemonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonCell.swift; sourceTree = "<group>"; };
+		279F59272015233600539A91 /* PokemonCellTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PokemonCellTableViewCell.xib; sourceTree = "<group>"; };
 		27FA73EE20128FD5006D4B04 /* PokeClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PokeClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		27FA73F120128FD5006D4B04 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		27FA73F320128FD5006D4B04 /* PokemonListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonListViewController.swift; sourceTree = "<group>"; };
@@ -118,8 +120,8 @@
 		279F59172014C24900539A91 /* XIBs */ = {
 			isa = PBXGroup;
 			children = (
-				279F59142014C24200539A91 /* LoadingScreenViewController.xib */,
-				279F59212014FA1400539A91 /* PokemonListViewController.xib */,
+				279F59242015230C00539A91 /* Cells */,
+				279F5923201522F400539A91 /* View Controllers */,
 			);
 			path = XIBs;
 			sourceTree = "<group>";
@@ -128,9 +130,33 @@
 			isa = PBXGroup;
 			children = (
 				279F591A2014F35800539A91 /* UIColorExtension.swift */,
-				279F591F2014F78200539A91 /* UIAlertControllerExtension.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		279F5923201522F400539A91 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				279F59142014C24200539A91 /* LoadingScreenViewController.xib */,
+				279F59212014FA1400539A91 /* PokemonListViewController.xib */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		279F59242015230C00539A91 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				279F59272015233600539A91 /* PokemonCellTableViewCell.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		279F59252015231B00539A91 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				279F59262015233600539A91 /* PokemonCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		27FA73E520128FD5006D4B04 = {
@@ -158,6 +184,7 @@
 		27FA73F020128FD5006D4B04 /* PokeClient */ = {
 			isa = PBXGroup;
 			children = (
+				279F59252015231B00539A91 /* Cells */,
 				279F59182014F34100539A91 /* Extensions */,
 				279F59172014C24900539A91 /* XIBs */,
 				276A5E642012B61C00D538F3 /* Enums */,
@@ -388,6 +415,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				279F59292015233600539A91 /* PokemonCellTableViewCell.xib in Resources */,
 				279F59162014C24200539A91 /* LoadingScreenViewController.xib in Resources */,
 				27FA73F920128FD5006D4B04 /* Assets.xcassets in Resources */,
 				279F59222014FA1400539A91 /* PokemonListViewController.xib in Resources */,
@@ -559,8 +587,8 @@
 				27FA742F2012AD51006D4B04 /* Status.swift in Sources */,
 				279F591B2014F35800539A91 /* UIColorExtension.swift in Sources */,
 				279F59152014C24200539A91 /* LoadingScreenViewController.swift in Sources */,
+				279F59282015233600539A91 /* PokemonCell.swift in Sources */,
 				27FA742D201295AD006D4B04 /* DataManager.swift in Sources */,
-				279F59202014F78200539A91 /* UIAlertControllerExtension.swift in Sources */,
 				276A5E662012B62C00D538F3 /* DataManagerError.swift in Sources */,
 				27FA7429201294A3006D4B04 /* API.swift in Sources */,
 				27FA73F220128FD5006D4B04 /* AppDelegate.swift in Sources */,
