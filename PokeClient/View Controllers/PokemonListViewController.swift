@@ -10,6 +10,8 @@ import UIKit
 
 class PokemonListViewController: UIViewController {
     
+    @IBOutlet weak var pokemonTableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigationBar()
@@ -22,21 +24,31 @@ class PokemonListViewController: UIViewController {
 }
 
 extension PokemonListViewController {
+    
     func setupNavigationBar() {
+        setNavigationBarProperties()
+        addSearchController()
+        addNewPokemonButton()
+    }
+    
+    fileprivate func setNavigationBarProperties() {
         navigationItem.title = "Pokémons"
         navigationItem.hidesSearchBarWhenScrolling = true
         navigationController?.navigationBar.prefersLargeTitles = true
         self.navigationController?.navigationBar.barTintColor = #colorLiteral(red: 0.9732790589, green: 0.355466038, blue: 0.3788164854, alpha: 1)
-        
-        let searchController = UISearchController(searchResultsController: nil)
-        searchController.searchBar.tintColor = #colorLiteral(red: 0.9999960065, green: 1, blue: 1, alpha: 1)
-        navigationItem.searchController = searchController
-        
         navigationController?.navigationBar.largeTitleTextAttributes = [
             NSAttributedStringKey.foregroundColor: UIColor.white,
             NSAttributedStringKey.font: UIFont(name: "AvenirNext-Bold", size: 40)!
         ]
-        
+    }
+    
+    fileprivate func addSearchController() {
+        let searchController = UISearchController(searchResultsController: nil)
+        searchController.searchBar.tintColor = #colorLiteral(red: 0.9999960065, green: 1, blue: 1, alpha: 1)
+        navigationItem.searchController = searchController
+    }
+    
+    fileprivate func addNewPokemonButton() {
         let newPokemonButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(newPokemonButtonTapped))
         newPokemonButton.tintColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         navigationItem.rightBarButtonItem = newPokemonButton
