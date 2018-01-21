@@ -8,8 +8,14 @@
 
 import Foundation
 
-public struct Status: Decodable {
-    public let Id: Int?
-    public let Code: Int?
-    public let Description: String?
+struct Status: Codable {
+    let id: Int?
+    let code: Int?
+    let description: String?
+    
+    enum CodingKeys : String, CodingKey {
+        case id = "Id"
+        case code = "Code"
+        case description = "Description"
+    }
 }

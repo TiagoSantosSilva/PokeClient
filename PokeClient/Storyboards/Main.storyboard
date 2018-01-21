@@ -13,7 +13,7 @@
         <!--View Controller-->
         <scene sceneID="DQJ-Im-vHa">
             <objects>
-                <viewController id="9gN-jA-KnL" customClass="ViewController" customModule="PokeClient" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="9gN-jA-KnL" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="DEG-CT-LqB">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

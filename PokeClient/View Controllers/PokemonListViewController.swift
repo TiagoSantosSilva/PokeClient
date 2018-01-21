@@ -8,15 +8,15 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class PokemonListViewController: UIViewController {
     
-    private let dataManager = DataManager(baseUrl: API.BaseUrl)
+    private let dataManager = DataManager<Pokemon>(baseUrl: API.BaseUrl)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        dataManager.statusData { (response, error) in
-            print(response ?? "🤨")
+        dataManager.getData(endpoint: API.PokemonEndpoint) { (response, error) in
+            print(response ?? "🤯")
         }
     }
 }

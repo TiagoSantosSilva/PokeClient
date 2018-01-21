@@ -8,9 +8,9 @@
 
 import Foundation
 
-final class DataManager {
-    
-    typealias DataCompletion = (AnyObject?, DataManagerError?) -> ()
+typealias DataCompletion = (AnyObject?, DataManagerError?) -> ()
+
+final class DataManager<T: Codable> {
     
     let baseUrl: URL
     
@@ -18,20 +18,14 @@ final class DataManager {
         self.baseUrl = baseUrl
     }
     
-    func statusData(completion: @escaping DataCompletion) {
-        let URL = baseUrl.appendingPathComponent("Status")
+    func getData(endpoint: String, completion: @escaping DataCompletion) {
         
-        URLSession.shared.dataTask(with: URL) { (data, response, error) in
+        let requestUrl = baseUrl.appendingPathComponent(endpoint)
+        
+        URLSession.shared.dataTask(with: requestUrl) { (data, response, error) in
+            print(data!)
             self.didFetchData(data: data, response: response, error: error, completion: completion)
         }.resume()
-    }
-    
-    func pokemonData() {
-        // let URL = baseUrl.appendingPathComponent("Pokemons")
-    }
-    
-    func pokemonDataForId(id: String) {
-        // let URL = baseUrl.appendingPathComponent("Pokemons/\(id)")
     }
     
     private func didFetchData(data: Data?, response: URLResponse?, error: Error?, completion: DataCompletion) {
@@ -55,7 +49,7 @@ final class DataManager {
     }
     
     private func processData(data: Data, completion: DataCompletion) {
-        guard let data = try? JSONDecoder().decode([Status].self, from: data) as AnyObject else {
+        guard let data = try? JSONDecoder().decode([T].self, from: data) as AnyObject else {
             completion(nil, .InvalidResponse)
             return
         }

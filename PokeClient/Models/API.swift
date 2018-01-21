@@ -10,6 +10,6 @@ import Foundation
 
 struct API {
     static let BaseUrl = URL(string: "http://localhost:5000/api/")!
-    static let StatusEndpoint = URL(string: "status")!
-    static let PokemonEndpoint = URL(string: "pokemon")!
+    static let StatusEndpoint = "status"
+    static let PokemonEndpoint = "pokemons"
 }
