@@ -48,11 +48,16 @@ final class DataManager<T: Codable> {
     }
     
     private func processData(data: Data, completion: DataCompletion) {
-        guard let data = try? JSONDecoder().decode([T].self, from: data) as AnyObject else {
-            completion(nil, .InvalidResponse)
+        guard let dataDecoded = try? JSONDecoder().decode(T.self, from: data) as AnyObject else {
+            guard let dataDecoded = try? JSONDecoder().decode([T].self, from: data) as AnyObject else {
+                completion(nil, .InvalidResponse)
+                return
+            }
+            completion(dataDecoded, nil)
             return
         }
         
-        completion(data, nil)
+        completion(dataDecoded, nil)
+        return
     }
 }
