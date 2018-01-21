@@ -23,7 +23,6 @@ final class DataManager<T: Codable> {
         let requestUrl = baseUrl.appendingPathComponent(endpoint)
         
         URLSession.shared.dataTask(with: requestUrl) { (data, response, error) in
-            print(data!)
             self.didFetchData(data: data, response: response, error: error, completion: completion)
         }.resume()
     }
