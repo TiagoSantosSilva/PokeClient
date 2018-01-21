@@ -12,9 +12,13 @@ class PokemonListViewController: UIViewController {
     
     @IBOutlet weak var pokemonTableView: UITableView!
     
+    private let dataManager = DataManager<Pokemon>(baseUrl: API.BaseUrl)
+    private var pokemonList = [Pokemon]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigationBar()
+        getPokemonData()
         // Do any additional setup after loading the view.
     }
     
@@ -24,6 +28,12 @@ class PokemonListViewController: UIViewController {
 }
 
 extension PokemonListViewController {
+    
+    private func setupTableView() {
+        pokemonTableView.register(PokemonCell.self, forCellReuseIdentifier: "pokemonCell")
+        pokemonTableView.delegate = self
+        pokemonTableView.dataSource = self
+    }
     
     func setupNavigationBar() {
         setNavigationBarProperties()
@@ -57,5 +67,26 @@ extension PokemonListViewController {
     @objc func newPokemonButtonTapped() {
         let newPokemonViewController = NewPokemonViewController()
         present(newPokemonViewController, animated: true, completion: nil)
+    }
+}
+
+extension PokemonListViewController {
+    fileprivate func getPokemonData() {
+        dataManager.getData(endpoint: API.PokemonEndpoint) { (response, error) in
+            print(response ?? "🤯")
+            guard let pokemonListFromResponse = response as! [Pokemon]? else { return }
+            self.pokemonList = pokemonListFromResponse
+            self.pokemonTableView.reloadData()
+        }
+    }
+}
+
+extension PokemonListViewController: UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return pokemonList.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        return UITableViewCell()
     }
 }
