@@ -34,7 +34,7 @@ extension PokemonListViewController {
         
         // pokemonTableView.register(PokemonCell.self, forCellReuseIdentifier: "pokemonCell")
         
-        let nibName = UINib(nibName: "NibName", bundle: nil)
+        let nibName = UINib(nibName: "PokemonCell", bundle: nil)
         pokemonTableView.register(nibName, forCellReuseIdentifier: "pokemonCell")
         
         pokemonTableView.delegate = self
@@ -93,13 +93,13 @@ extension PokemonListViewController: UITableViewDataSource, UITableViewDelegate 
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let pokemonCell = PokemonCell(style: .default, reuseIdentifier: "pokemonCell")
-//        guard let pokemonCell = pokemonTableView.dequeueReusableCell(withIdentifier: "pokemonCell", for: indexPath) as? PokemonCell else { return UITableViewCell() }
-//        pokemonCell.dexNumberLabel.text = "#001"
-//        pokemonCell.pokemonNameLabel.text = "Tyranitar"
-//        return pokemonCell
+        guard let pokemonCell = pokemonTableView.dequeueReusableCell(withIdentifier: "pokemonCell", for: indexPath) as? PokemonCell else { return UITableViewCell() }
+        let pokemon = pokemonList[indexPath.row]
         
-        return UITableViewCell()
+        guard let pokemonNumber = pokemon.dexNumber else { return UITableViewCell() }
+        pokemonCell.dexNumberLabel.text = "#\(String(describing: pokemonNumber))"
+        pokemonCell.pokemonNameLabel.text = pokemon.name
+        return pokemonCell
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {

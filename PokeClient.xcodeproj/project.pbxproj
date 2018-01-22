@@ -15,7 +15,7 @@
 		279F59162014C24200539A91 /* LoadingScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 279F59142014C24200539A91 /* LoadingScreenViewController.xib */; };
 		279F591B2014F35800539A91 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279F591A2014F35800539A91 /* UIColorExtension.swift */; };
 		279F59282015233600539A91 /* PokemonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279F59262015233600539A91 /* PokemonCell.swift */; };
-		279F59292015233600539A91 /* PokemonCellTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 279F59272015233600539A91 /* PokemonCellTableViewCell.xib */; };
+		279F59292015233600539A91 /* PokemonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 279F59272015233600539A91 /* PokemonCell.xib */; };
 		279F592C201542E600539A91 /* PokemonListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279F592A201542E600539A91 /* PokemonListViewController.swift */; };
 		279F592D201542E600539A91 /* PokemonListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 279F592B201542E600539A91 /* PokemonListViewController.xib */; };
 		27FA73F220128FD5006D4B04 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FA73F120128FD5006D4B04 /* AppDelegate.swift */; };
@@ -57,7 +57,7 @@
 		279F59142014C24200539A91 /* LoadingScreenViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingScreenViewController.xib; sourceTree = "<group>"; };
 		279F591A2014F35800539A91 /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		279F59262015233600539A91 /* PokemonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonCell.swift; sourceTree = "<group>"; };
-		279F59272015233600539A91 /* PokemonCellTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PokemonCellTableViewCell.xib; sourceTree = "<group>"; };
+		279F59272015233600539A91 /* PokemonCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PokemonCell.xib; sourceTree = "<group>"; };
 		279F592A201542E600539A91 /* PokemonListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonListViewController.swift; sourceTree = "<group>"; };
 		279F592B201542E600539A91 /* PokemonListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PokemonListViewController.xib; sourceTree = "<group>"; };
 		27FA73EE20128FD5006D4B04 /* PokeClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PokeClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -151,7 +151,7 @@
 		279F59242015230C00539A91 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				279F59272015233600539A91 /* PokemonCellTableViewCell.xib */,
+				279F59272015233600539A91 /* PokemonCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -421,7 +421,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				279F59292015233600539A91 /* PokemonCellTableViewCell.xib in Resources */,
+				279F59292015233600539A91 /* PokemonCell.xib in Resources */,
 				276830B620155B250081D792 /* NewPokemonViewController.xib in Resources */,
 				279F59162014C24200539A91 /* LoadingScreenViewController.xib in Resources */,
 				27FA73F920128FD5006D4B04 /* Assets.xcassets in Resources */,
