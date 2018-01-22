@@ -17,7 +17,12 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PokemonDetailsViewController" customModule="PokeClient" customModuleProvider="target">
             <connections>
+                <outlet property="heightLabel" destination="PpY-GN-vCM" id="Pm3-oK-Jzf"/>
+                <outlet property="nameLabel" destination="r97-jf-Xln" id="SPH-KY-ORV"/>
+                <outlet property="numberLabel" destination="Y1S-Qw-IXt" id="kfU-rp-8yz"/>
+                <outlet property="typeLabel" destination="o16-m0-qwa" id="MWy-6S-Wgx"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="weightLabel" destination="4QN-cv-Cp5" id="VRf-bx-KDv"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
