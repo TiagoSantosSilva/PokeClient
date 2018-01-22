@@ -12,7 +12,7 @@
     </dependencies>
     <customFonts key="customFonts">
         <array key="AvenirNext.ttc">
-            <string>AvenirNext-Bold</string>
+            <string>AvenirNext-DemiBold</string>
             <string>AvenirNext-Medium</string>
         </array>
     </customFonts>
@@ -32,9 +32,15 @@
                         <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d0r-3z-oto">
-                        <rect key="frame" x="274" y="4" width="30" height="36"/>
-                        <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="17"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tyranitar" textAlignment="justified" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7b8-oQ-7K3" userLabel="Pokemon Name">
+                        <rect key="frame" x="127" y="10.5" width="67.5" height="23.5"/>
+                        <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="17"/>
+                        <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d0r-3z-oto">
+                        <rect key="frame" x="274" y="3" width="30" height="37"/>
+                        <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="18"/>
                         <state key="normal" title="&gt;">
                             <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </state>
@@ -42,20 +48,14 @@
                             <action selector="pokemonDetailsButtonTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Yln-e4-YeW"/>
                         </connections>
                     </button>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tyranitar" textAlignment="justified" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7b8-oQ-7K3" userLabel="Pokemon Name">
-                        <rect key="frame" x="127" y="10.5" width="67.5" height="23.5"/>
-                        <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="17"/>
-                        <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                 </subviews>
                 <color key="backgroundColor" red="1" green="0.41568627450000001" blue="0.40784313729999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                 <constraints>
+                    <constraint firstItem="d0r-3z-oto" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="480-2q-J52"/>
                     <constraint firstItem="c3K-tN-kgi" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="64Z-S5-CQu"/>
                     <constraint firstItem="c3K-tN-kgi" firstAttribute="centerY" secondItem="7b8-oQ-7K3" secondAttribute="centerY" id="8n3-rH-yBS"/>
+                    <constraint firstItem="d0r-3z-oto" firstAttribute="centerY" secondItem="7b8-oQ-7K3" secondAttribute="centerY" id="MaO-YA-n7b"/>
                     <constraint firstItem="7b8-oQ-7K3" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="eYP-SC-ohd"/>
-                    <constraint firstItem="d0r-3z-oto" firstAttribute="centerY" secondItem="7b8-oQ-7K3" secondAttribute="centerY" id="mjV-ng-2np"/>
-                    <constraint firstAttribute="trailing" secondItem="d0r-3z-oto" secondAttribute="trailing" constant="16" id="tNU-2A-a6v"/>
                     <constraint firstItem="7b8-oQ-7K3" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="uOP-Hx-7CG"/>
                 </constraints>
             </tableViewCellContentView>

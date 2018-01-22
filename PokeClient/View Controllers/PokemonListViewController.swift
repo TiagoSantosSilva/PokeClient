@@ -20,7 +20,6 @@ class PokemonListViewController: UIViewController {
         setupNavigationBar()
         setupTableView()
         getPokemonData()
-        // Do any additional setup after loading the view.
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -31,9 +30,6 @@ class PokemonListViewController: UIViewController {
 extension PokemonListViewController {
     
     private func setupTableView() {
-        
-        // pokemonTableView.register(PokemonCell.self, forCellReuseIdentifier: "pokemonCell")
-        
         let nibName = UINib(nibName: "PokemonCell", bundle: nil)
         pokemonTableView.register(nibName, forCellReuseIdentifier: "pokemonCell")
         
@@ -55,6 +51,10 @@ extension PokemonListViewController {
         navigationController?.navigationBar.largeTitleTextAttributes = [
             NSAttributedStringKey.foregroundColor: UIColor.white,
             NSAttributedStringKey.font: UIFont(name: "AvenirNext-Bold", size: 40)!
+        ]
+        navigationController?.navigationBar.titleTextAttributes = [
+            NSAttributedStringKey.foregroundColor: UIColor.white,
+            NSAttributedStringKey.font: UIFont(name: "AvenirNext-Bold", size: 20)!
         ]
     }
     
@@ -79,7 +79,6 @@ extension PokemonListViewController {
 extension PokemonListViewController {
     fileprivate func getPokemonData() {
         dataManager.getData(endpoint: API.PokemonEndpoint) { (response, error) in
-            print(response ?? "🤯")
             guard let pokemonListFromResponse = response as! [Pokemon]? else { return }
             self.pokemonList = pokemonListFromResponse
             self.pokemonTableView.reloadData()
