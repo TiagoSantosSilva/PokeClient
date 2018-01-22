@@ -37,7 +37,7 @@ class PokemonDetailsViewController: UIViewController {
     }
     
     @objc func editButtonTapped() {
-        // TODO: Display New Pokemon View Controller with details already filled.
+        // Display New Pokemon View Controller with details already filled.
         print("Edit button tapped 👾")
     }
     

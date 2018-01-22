@@ -17,6 +17,7 @@
 		279712902016393400AE513D /* PokemonDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2797128E2016393400AE513D /* PokemonDetailsViewController.swift */; };
 		279712912016393400AE513D /* PokemonDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2797128F2016393400AE513D /* PokemonDetailsViewController.xib */; };
 		279712932016603400AE513D /* UINavigationControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279712922016603400AE513D /* UINavigationControllerExtension.swift */; };
+		279712972016956400AE513D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 279712962016956300AE513D /* Assets.xcassets */; };
 		279F590E2014BD3B00539A91 /* Pokemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279F590D2014BD3B00539A91 /* Pokemon.swift */; };
 		279F59152014C24200539A91 /* LoadingScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279F59132014C24200539A91 /* LoadingScreenViewController.swift */; };
 		279F59162014C24200539A91 /* LoadingScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 279F59142014C24200539A91 /* LoadingScreenViewController.xib */; };
@@ -26,7 +27,6 @@
 		279F592C201542E600539A91 /* PokemonListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279F592A201542E600539A91 /* PokemonListViewController.swift */; };
 		279F592D201542E600539A91 /* PokemonListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 279F592B201542E600539A91 /* PokemonListViewController.xib */; };
 		27FA73F220128FD5006D4B04 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FA73F120128FD5006D4B04 /* AppDelegate.swift */; };
-		27FA73F920128FD5006D4B04 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27FA73F820128FD5006D4B04 /* Assets.xcassets */; };
 		27FA740720128FD5006D4B04 /* PokeClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FA740620128FD5006D4B04 /* PokeClientTests.swift */; };
 		27FA741220128FD6006D4B04 /* PokeClientUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FA741120128FD6006D4B04 /* PokeClientUITests.swift */; };
 		27FA742520129060006D4B04 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27FA742420129060006D4B04 /* Main.storyboard */; };
@@ -66,6 +66,7 @@
 		2797128E2016393400AE513D /* PokemonDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonDetailsViewController.swift; sourceTree = "<group>"; };
 		2797128F2016393400AE513D /* PokemonDetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PokemonDetailsViewController.xib; sourceTree = "<group>"; };
 		279712922016603400AE513D /* UINavigationControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationControllerExtension.swift; sourceTree = "<group>"; };
+		279712962016956300AE513D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		279F590D2014BD3B00539A91 /* Pokemon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pokemon.swift; sourceTree = "<group>"; };
 		279F59132014C24200539A91 /* LoadingScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingScreenViewController.swift; sourceTree = "<group>"; };
 		279F59142014C24200539A91 /* LoadingScreenViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingScreenViewController.xib; sourceTree = "<group>"; };
@@ -76,7 +77,6 @@
 		279F592B201542E600539A91 /* PokemonListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PokemonListViewController.xib; sourceTree = "<group>"; };
 		27FA73EE20128FD5006D4B04 /* PokeClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PokeClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		27FA73F120128FD5006D4B04 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		27FA73F820128FD5006D4B04 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		27FA73FD20128FD5006D4B04 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		27FA740220128FD5006D4B04 /* PokeClientTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PokeClientTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		27FA740620128FD5006D4B04 /* PokeClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeClientTests.swift; sourceTree = "<group>"; };
@@ -312,7 +312,7 @@
 		27FA742220129040006D4B04 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				27FA73F820128FD5006D4B04 /* Assets.xcassets */,
+				279712962016956300AE513D /* Assets.xcassets */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -486,7 +486,7 @@
 				279712912016393400AE513D /* PokemonDetailsViewController.xib in Resources */,
 				276830B620155B250081D792 /* NewPokemonViewController.xib in Resources */,
 				279F59162014C24200539A91 /* LoadingScreenViewController.xib in Resources */,
-				27FA73F920128FD5006D4B04 /* Assets.xcassets in Resources */,
+				279712972016956400AE513D /* Assets.xcassets in Resources */,
 				27FA742520129060006D4B04 /* Main.storyboard in Resources */,
 				279F592D201542E600539A91 /* PokemonListViewController.xib in Resources */,
 			);
@@ -814,7 +814,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 88CDA8C0F6AC210AE76787FC /* Pods-PokeClient.debug.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = appicon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 64E8842TP6;
 				INFOPLIST_FILE = "$(SRCROOT)/PokeClient/Supporting Files/Info.plist";
@@ -830,7 +830,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 88BBF05DB21A5A0BB34370C2 /* Pods-PokeClient.release.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = appicon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 64E8842TP6;
 				INFOPLIST_FILE = "$(SRCROOT)/PokeClient/Supporting Files/Info.plist";
