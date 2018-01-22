@@ -26,6 +26,7 @@ class PokemonListViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+         // Not the best solution.. 🔨
         navigationController?.navigationBar.prefersLargeTitles = true
     }
     

@@ -17,12 +17,28 @@ class PokemonDetailsViewController: UIViewController {
     @IBOutlet weak var typeLabel: UILabel!
     
     var pokemon: Pokemon?
+    var editButton: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupController()
+    }
+    
+    private func setupController() {
         setupLabels()
+        setupNavigationController()
+    }
+    
+    private func setupNavigationController() {
         navigationController?.navigationBar.tintColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         navigationController?.isToolbarHidden = true
+        editButton = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(editButtonTapped))
+        navigationItem.setRightBarButton(editButton, animated: true)
+    }
+    
+    @objc func editButtonTapped() {
+        // TODO: Display New Pokemon View Controller with details already filled.
+        print("Edit button tapped 👾")
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
