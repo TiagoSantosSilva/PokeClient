@@ -33,9 +33,15 @@
                         <navigationItem title="New Pokemon" id="nU1-1E-Z6Z">
                             <barButtonItem key="leftBarButtonItem" title="Cancel" id="8K1-o0-K8D">
                                 <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <action selector="cancelButtonTapped:" destination="-1" id="VS2-Y4-gwI"/>
+                                </connections>
                             </barButtonItem>
                             <barButtonItem key="rightBarButtonItem" title="OK" id="GSv-1b-Svu">
                                 <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <action selector="okButtonTapped:" destination="-1" id="72v-4X-lbr"/>
+                                </connections>
                             </barButtonItem>
                         </navigationItem>
                     </items>
