@@ -14,6 +14,9 @@ class PokemonListViewController: UIViewController {
     
     private let dataManager = DataManager<Pokemon>(baseUrl: API.BaseUrl)
     private var pokemonList = [Pokemon]()
+    private var filteredPokemons = [Pokemon]()
+    
+    var searchController: UISearchController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,9 +62,12 @@ extension PokemonListViewController {
     }
     
     fileprivate func addSearchController() {
-        let searchController = UISearchController(searchResultsController: nil)
+        searchController = UISearchController(searchResultsController: nil)
         searchController.searchBar.tintColor = #colorLiteral(red: 0.9999960065, green: 1, blue: 1, alpha: 1)
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
         navigationItem.searchController = searchController
+        definesPresentationContext = true
     }
     
     fileprivate func addNewPokemonButton() {
@@ -88,12 +94,13 @@ extension PokemonListViewController {
 
 extension PokemonListViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return pokemonList.count
+        guard isFiltering() else { return pokemonList.count }
+        return filteredPokemons.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let pokemonCell = pokemonTableView.dequeueReusableCell(withIdentifier: "pokemonCell", for: indexPath) as? PokemonCell else { return UITableViewCell() }
-        let pokemon = pokemonList[indexPath.row]
+        let pokemon = getPokemonToCell(indexPath: indexPath)
         
         guard let pokemonNumber = pokemon.dexNumber else { return UITableViewCell() }
         pokemonCell.dexNumberLabel.text = "#\(String(describing: pokemonNumber))"
@@ -103,5 +110,32 @@ extension PokemonListViewController: UITableViewDataSource, UITableViewDelegate 
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
+    }
+    
+    func getPokemonToCell(indexPath: IndexPath) -> Pokemon {
+        guard isFiltering() else { return pokemonList[indexPath.row] }
+        return filteredPokemons[indexPath.row]
+    }
+}
+
+extension PokemonListViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        filterContentForSearchText(searchController.searchBar.text!)
+    }
+    
+    func searchBarIsEmpty() -> Bool {
+        return searchController.searchBar.text?.isEmpty ?? true
+    }
+    
+    func filterContentForSearchText(_ searchText: String, scope: String = "All") {
+        filteredPokemons = pokemonList.filter({ (pokemon: Pokemon) -> Bool in
+            return (pokemon.name?.lowercased().contains(searchText.lowercased()))!
+        })
+        
+        pokemonTableView.reloadData()
+    }
+    
+    func isFiltering() -> Bool {
+        return searchController.isActive && !searchBarIsEmpty()
     }
 }
