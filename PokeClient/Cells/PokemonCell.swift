@@ -14,12 +14,6 @@ class PokemonCell: UITableViewCell {
     @IBOutlet weak var pokemonNameLabel: UILabel!
     @IBOutlet weak var pokemonDetailsButton: UIButton!
     
-//    init(dexNumber: String, pokemonName: String) {
-//        dexNumberLabel.text = dexNumber
-//        pokemonNameLabel.text = pokemonName
-//        super.init(style: .default, reuseIdentifier: "pokemonCell")
-//    }
-    
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
     }

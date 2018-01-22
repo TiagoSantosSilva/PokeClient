@@ -18,6 +18,7 @@ class PokemonListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigationBar()
+        setupTableView()
         getPokemonData()
         // Do any additional setup after loading the view.
     }
@@ -30,7 +31,12 @@ class PokemonListViewController: UIViewController {
 extension PokemonListViewController {
     
     private func setupTableView() {
-        pokemonTableView.register(PokemonCell.self, forCellReuseIdentifier: "pokemonCell")
+        
+        // pokemonTableView.register(PokemonCell.self, forCellReuseIdentifier: "pokemonCell")
+        
+        let nibName = UINib(nibName: "NibName", bundle: nil)
+        pokemonTableView.register(nibName, forCellReuseIdentifier: "pokemonCell")
+        
         pokemonTableView.delegate = self
         pokemonTableView.dataSource = self
     }
@@ -87,6 +93,16 @@ extension PokemonListViewController: UITableViewDataSource, UITableViewDelegate 
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        let pokemonCell = PokemonCell(style: .default, reuseIdentifier: "pokemonCell")
+//        guard let pokemonCell = pokemonTableView.dequeueReusableCell(withIdentifier: "pokemonCell", for: indexPath) as? PokemonCell else { return UITableViewCell() }
+//        pokemonCell.dexNumberLabel.text = "#001"
+//        pokemonCell.pokemonNameLabel.text = "Tyranitar"
+//        return pokemonCell
+        
         return UITableViewCell()
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
     }
 }
