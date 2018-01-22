@@ -25,6 +25,10 @@ class PokemonListViewController: UIViewController {
         getPokemonData()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.navigationBar.prefersLargeTitles = true
+    }
+    
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
@@ -66,7 +70,6 @@ extension PokemonListViewController {
     private func setNavigationBarProperties() {
         navigationItem.title = "Pokémons"
         navigationItem.hidesSearchBarWhenScrolling = true
-        navigationController?.navigationBar.prefersLargeTitles = true
         self.navigationController?.navigationBar.barTintColor = #colorLiteral(red: 0.9732790589, green: 0.355466038, blue: 0.3788164854, alpha: 1)
         navigationController?.navigationBar.largeTitleTextAttributes = [
             NSAttributedStringKey.foregroundColor: UIColor.white,

@@ -16,6 +16,7 @@
 		2797128D2016165E00AE513D /* LoadingScreenViewControllerAlertControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2797128C2016165E00AE513D /* LoadingScreenViewControllerAlertControllerExtension.swift */; };
 		279712902016393400AE513D /* PokemonDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2797128E2016393400AE513D /* PokemonDetailsViewController.swift */; };
 		279712912016393400AE513D /* PokemonDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2797128F2016393400AE513D /* PokemonDetailsViewController.xib */; };
+		279712932016603400AE513D /* UINavigationControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279712922016603400AE513D /* UINavigationControllerExtension.swift */; };
 		279F590E2014BD3B00539A91 /* Pokemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279F590D2014BD3B00539A91 /* Pokemon.swift */; };
 		279F59152014C24200539A91 /* LoadingScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279F59132014C24200539A91 /* LoadingScreenViewController.swift */; };
 		279F59162014C24200539A91 /* LoadingScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 279F59142014C24200539A91 /* LoadingScreenViewController.xib */; };
@@ -64,6 +65,7 @@
 		2797128C2016165E00AE513D /* LoadingScreenViewControllerAlertControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingScreenViewControllerAlertControllerExtension.swift; sourceTree = "<group>"; };
 		2797128E2016393400AE513D /* PokemonDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonDetailsViewController.swift; sourceTree = "<group>"; };
 		2797128F2016393400AE513D /* PokemonDetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PokemonDetailsViewController.xib; sourceTree = "<group>"; };
+		279712922016603400AE513D /* UINavigationControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationControllerExtension.swift; sourceTree = "<group>"; };
 		279F590D2014BD3B00539A91 /* Pokemon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pokemon.swift; sourceTree = "<group>"; };
 		279F59132014C24200539A91 /* LoadingScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingScreenViewController.swift; sourceTree = "<group>"; };
 		279F59142014C24200539A91 /* LoadingScreenViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingScreenViewController.xib; sourceTree = "<group>"; };
@@ -160,6 +162,22 @@
 			path = "Loading Screen View Controller";
 			sourceTree = "<group>";
 		};
+		279712942016606C00AE513D /* Colors */ = {
+			isa = PBXGroup;
+			children = (
+				279F591A2014F35800539A91 /* UIColorExtension.swift */,
+			);
+			path = Colors;
+			sourceTree = "<group>";
+		};
+		279712952016607400AE513D /* Navigation Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				279712922016603400AE513D /* UINavigationControllerExtension.swift */,
+			);
+			path = "Navigation Controllers";
+			sourceTree = "<group>";
+		};
 		279F59172014C24900539A91 /* XIBs */ = {
 			isa = PBXGroup;
 			children = (
@@ -172,8 +190,9 @@
 		279F59182014F34100539A91 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				279712952016607400AE513D /* Navigation Controllers */,
+				279712942016606C00AE513D /* Colors */,
 				279712832016152500AE513D /* View Controllers */,
-				279F591A2014F35800539A91 /* UIColorExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -634,6 +653,7 @@
 			files = (
 				279F590E2014BD3B00539A91 /* Pokemon.swift in Sources */,
 				27FA742F2012AD51006D4B04 /* Status.swift in Sources */,
+				279712932016603400AE513D /* UINavigationControllerExtension.swift in Sources */,
 				279F591B2014F35800539A91 /* UIColorExtension.swift in Sources */,
 				279F59152014C24200539A91 /* LoadingScreenViewController.swift in Sources */,
 				279712862016155200AE513D /* PokemonListViewControllerTableViewExtension.swift in Sources */,
