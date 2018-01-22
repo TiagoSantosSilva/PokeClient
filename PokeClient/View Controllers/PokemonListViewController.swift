@@ -20,15 +20,16 @@ class PokemonListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.navigationBar.prefersLargeTitles = true
         setupNavigationBar()
         setupTableView()
         getPokemonData()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-         // Not the best solution.. 🔨
-        navigationController?.navigationBar.prefersLargeTitles = true
-    }
+//    override func viewWillDisappear(_ animated: Bool) {
+//        super.viewWillDisappear(animated)
+//        navigationController?.navigationBar.prefersLargeTitles = false
+//    }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
@@ -42,13 +43,16 @@ class PokemonListViewController: UIViewController {
         }
         
         let pokemonDetailsViewController = PokemonDetailsViewController(nibName: "PokemonDetailsViewController", bundle: nil, pokemon: tappedPokemon)
+        navigationController?.navigationBar.prefersLargeTitles = false
         navigationController?.pushViewController(pokemonDetailsViewController, animated: true)
     }
     
     func getTappedPokemon(cell: PokemonCell) -> Pokemon? {
         let cellIndex = pokemonTableView.indexPath(for: cell)
         guard let index = cellIndex else { return nil }
-        return pokemonList[index.row]
+        
+        guard isFiltering() else { return pokemonList[index.row] }
+        return filteredPokemons[index.row]
     }
 }
 

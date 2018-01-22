@@ -32,6 +32,7 @@ class PokemonDetailsViewController: UIViewController {
     private func setupNavigationController() {
         navigationController?.navigationBar.tintColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         navigationController?.isToolbarHidden = true
+        navigationItem.title = "Details"
         editButton = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(editButtonTapped))
         navigationItem.setRightBarButton(editButton, animated: true)
     }
@@ -45,9 +46,9 @@ class PokemonDetailsViewController: UIViewController {
         return .lightContent
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        // Not the best solution.. 🔨
-        navigationController?.navigationBar.prefersLargeTitles = false
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.navigationBar.prefersLargeTitles = true
     }
     
     convenience init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?, pokemon: Pokemon) {

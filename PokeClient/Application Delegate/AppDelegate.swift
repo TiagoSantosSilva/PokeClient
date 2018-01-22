@@ -20,7 +20,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let loadingScreenViewController = LoadingScreenViewController()
         self.window?.rootViewController = loadingScreenViewController
-        
         return true
     }
 
