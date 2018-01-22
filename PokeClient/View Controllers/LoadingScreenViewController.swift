@@ -22,7 +22,7 @@ class LoadingScreenViewController: UIViewController {
         return .lightContent
     }
     
-    fileprivate func getStatusData() {
+    internal func getStatusData() {
         dataManager.getData(endpoint: API.StatusEndpoint) { (response, error) in
             guard let status = response as? Status else {
                 self.presentNoConnectionAlertController()
@@ -39,23 +39,5 @@ class LoadingScreenViewController: UIViewController {
             print(navigationController)
             self.present(navigationController, animated: true, completion: nil)
         }
-    }
-    
-    fileprivate func presentNoConnectionAlertController() {
-        let noConnectionAlertController = UIAlertController(title: "No Connection", message: "You seem to have no connection to the internet. Please try connecting again.", preferredStyle: .alert)
-        noConnectionAlertController.addAction(UIAlertAction(title: "Retry", style: .default, handler: { (handler) in
-            self.getStatusData()
-        }))
-        noConnectionAlertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-        self.present(noConnectionAlertController, animated: true, completion: nil)
-    }
-    
-    func presentServerNotUpAlertController() {
-        let serverNotUpAlertController = UIAlertController(title: "Server down", message: "The server is down. Please try connecting again later.", preferredStyle: .alert)
-        serverNotUpAlertController.addAction(UIAlertAction(title: "Retry", style: .default, handler: { (handler) in
-            self.getStatusData()
-        }))
-        serverNotUpAlertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-        self.present(serverNotUpAlertController, animated: true, completion: nil)
     }
 }
