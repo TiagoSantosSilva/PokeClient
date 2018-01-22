@@ -36,7 +36,6 @@ class LoadingScreenViewController: UIViewController {
             
             let pokemonListViewController = PokemonListViewController(nibName: "PokemonListViewController", bundle: nil)
             let navigationController = UINavigationController(rootViewController: pokemonListViewController)
-            print(navigationController)
             self.present(navigationController, animated: true, completion: nil)
         }
     }

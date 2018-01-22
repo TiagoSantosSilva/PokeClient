@@ -21,6 +21,7 @@ extension PokemonListViewController: UITableViewDataSource, UITableViewDelegate 
         guard let pokemonNumber = pokemon.dexNumber else { return UITableViewCell() }
         pokemonCell.dexNumberLabel.text = "#\(String(describing: pokemonNumber))"
         pokemonCell.pokemonNameLabel.text = pokemon.name
+        pokemonCell.pokemonListViewController = self
         return pokemonCell
     }
     

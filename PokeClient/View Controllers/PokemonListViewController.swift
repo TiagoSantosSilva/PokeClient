@@ -28,6 +28,23 @@ class PokemonListViewController: UIViewController {
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
+    
+    func pushDetailsView(cell: PokemonCell) {
+        
+        guard let tappedPokemon = getTappedPokemon(cell: cell) else {
+            // Present Alert Controller
+            return
+        }
+        
+        let pokemonDetailsViewController = PokemonDetailsViewController(nibName: "PokemonDetailsViewController", bundle: nil, pokemon: tappedPokemon)
+        navigationController?.pushViewController(pokemonDetailsViewController, animated: true)
+    }
+    
+    func getTappedPokemon(cell: PokemonCell) -> Pokemon? {
+        let cellIndex = pokemonTableView.indexPath(for: cell)
+        guard let index = cellIndex else { return nil }
+        return pokemonList[index.row]
+    }
 }
 
 extension PokemonListViewController {

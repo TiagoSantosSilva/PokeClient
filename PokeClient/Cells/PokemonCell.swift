@@ -14,6 +14,8 @@ class PokemonCell: UITableViewCell {
     @IBOutlet weak var pokemonNameLabel: UILabel!
     @IBOutlet weak var pokemonDetailsButton: UIButton!
     
+    weak var pokemonListViewController: PokemonListViewController!
+    
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
     }
@@ -33,5 +35,7 @@ class PokemonCell: UITableViewCell {
     
     @IBAction func pokemonDetailsButtonTapped(_ sender: Any) {
         print("Pokemon details button was tapped.")
+        
+        pokemonListViewController.pushDetailsView(cell: self)
     }
 }
