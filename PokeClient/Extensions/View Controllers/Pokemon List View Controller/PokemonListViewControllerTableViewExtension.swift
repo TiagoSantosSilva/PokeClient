@@ -20,12 +20,12 @@ extension PokemonListViewController: UITableViewDataSource, UITableViewDelegate 
         
         guard let pokemonNumber = pokemon.dexNumber else { return UITableViewCell() }
         pokemonCell.dexNumberLabel.text = "#\(String(describing: pokemonNumber))"
+        
+        
         pokemonCell.pokemonNameLabel.text = pokemon.name
         pokemonCell.pokemonListViewController = self
         
-//        DispatchQueue.main.async {
-//             pokemonCell.pokemonImage.image = self.setupPokemonImage(pokemon: pokemon)
-//        }
+        setCellImage(pokemonNumber, pokemonCell)
         return pokemonCell
     }
     
@@ -36,5 +36,27 @@ extension PokemonListViewController: UITableViewDataSource, UITableViewDelegate 
     func getPokemonToCell(indexPath: IndexPath) -> Pokemon {
         guard isFiltering() else { return pokemonList[indexPath.row] }
         return filteredPokemons[indexPath.row]
+    }
+    
+    // MARK: - Sets
+    private func setCellImage(_ pokemonNumber: Int, _ pokemonCell: PokemonCell) {
+        apiClient.getPokemonImageData(pokemonNumber: String(describing: pokemonNumber)) { (data, error) in
+            guard error == nil else {
+                DispatchQueue.main.async {
+                    pokemonCell.pokemonImage.image = UIImage(named: "unkown")
+                }
+                return
+            }
+            
+            guard let imageData = data else {
+                DispatchQueue.main.async {
+                    pokemonCell.pokemonImage.image = UIImage(named: "unkown")
+                }
+                return
+            }
+            DispatchQueue.main.async {
+                pokemonCell.pokemonImage.image = UIImage(data: imageData)
+            }
+        }
     }
 }
