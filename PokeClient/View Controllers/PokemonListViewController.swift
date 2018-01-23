@@ -55,6 +55,7 @@ class PokemonListViewController: UIViewController {
         pokemonList.append(pokemon)
         let newPokemonIndexPath = IndexPath(row: pokemonList.count - 1, section: 0)
         pokemonTableView.insertRows(at: [newPokemonIndexPath], with: .bottom)
+        pokemonTableView.scrollToRow(at: newPokemonIndexPath, at: .bottom, animated: false)
     }
 }
 
