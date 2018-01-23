@@ -71,7 +71,7 @@ extension PokemonListViewController {
     private func setNavigationBarProperties() {
         navigationItem.title = "Pokémons"
         navigationItem.hidesSearchBarWhenScrolling = true
-        self.navigationController?.navigationBar.barTintColor = #colorLiteral(red: 0.9732790589, green: 0.355466038, blue: 0.3788164854, alpha: 1)
+        self.navigationController?.navigationBar.barTintColor = #colorLiteral(red: 0.9402940869, green: 0.324482739, blue: 0.3114508092, alpha: 1)
         navigationController?.navigationBar.largeTitleTextAttributes = [
             NSAttributedStringKey.foregroundColor: UIColor.white,
             NSAttributedStringKey.font: UIFont(name: "AvenirNext-Bold", size: 40)!

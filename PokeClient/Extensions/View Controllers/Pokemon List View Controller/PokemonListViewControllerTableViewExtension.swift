@@ -33,8 +33,6 @@ extension PokemonListViewController: UITableViewDataSource, UITableViewDelegate 
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let pokemonCell = tableView.cellForRow(at: indexPath) as! PokemonCell
-        pokemonCell.backgroundColor = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
         tableView.reloadRows(at: [indexPath], with: .fade)
     }
     
