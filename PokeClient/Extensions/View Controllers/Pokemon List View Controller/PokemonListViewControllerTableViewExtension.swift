@@ -19,8 +19,7 @@ extension PokemonListViewController: UITableViewDataSource, UITableViewDelegate 
         let pokemon = getPokemonToCell(indexPath: indexPath)
         
         guard let pokemonNumber = pokemon.dexNumber else { return UITableViewCell() }
-        pokemonCell.dexNumberLabel.text = "#\(String(describing: pokemonNumber))"
-        
+        setPokemonNumber(pokemonNumber: pokemonNumber, pokemonCell: pokemonCell)
         
         pokemonCell.pokemonNameLabel.text = pokemon.name
         pokemonCell.pokemonListViewController = self
@@ -58,5 +57,18 @@ extension PokemonListViewController: UITableViewDataSource, UITableViewDelegate 
                 pokemonCell.pokemonImage.image = UIImage(data: imageData)
             }
         }
+    }
+    
+    private func setPokemonNumber(pokemonNumber: Int, pokemonCell: PokemonCell) {
+        var digitCount = pokemonNumber.numberOfDigits()
+        var dexNumberString = "#"
+        
+        while digitCount < 3 {
+            dexNumberString = "\(dexNumberString)0"
+            digitCount += 1
+        }
+        dexNumberString = "\(dexNumberString)\(pokemonNumber)"
+        
+        pokemonCell.dexNumberLabel.text = dexNumberString
     }
 }

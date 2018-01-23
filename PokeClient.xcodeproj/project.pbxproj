@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2707D04420177D91003AEAE0 /* IntExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2707D04320177D91003AEAE0 /* IntExtension.swift */; };
 		276830B520155B250081D792 /* NewPokemonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276830B320155B250081D792 /* NewPokemonViewController.swift */; };
 		276830B620155B250081D792 /* NewPokemonViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 276830B420155B250081D792 /* NewPokemonViewController.xib */; };
 		276A5E662012B62C00D538F3 /* DataManagerError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276A5E652012B62C00D538F3 /* DataManagerError.swift */; };
@@ -57,6 +58,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2707D04320177D91003AEAE0 /* IntExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntExtension.swift; sourceTree = "<group>"; };
 		276830B320155B250081D792 /* NewPokemonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPokemonViewController.swift; sourceTree = "<group>"; };
 		276830B420155B250081D792 /* NewPokemonViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewPokemonViewController.xib; sourceTree = "<group>"; };
 		276A5E652012B62C00D538F3 /* DataManagerError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManagerError.swift; sourceTree = "<group>"; };
@@ -129,6 +131,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2707D04220177D83003AEAE0 /* Primitives */ = {
+			isa = PBXGroup;
+			children = (
+				2707D04320177D91003AEAE0 /* IntExtension.swift */,
+			);
+			path = Primitives;
+			sourceTree = "<group>";
+		};
 		276A5E642012B61C00D538F3 /* Enums */ = {
 			isa = PBXGroup;
 			children = (
@@ -192,6 +202,7 @@
 		279F59182014F34100539A91 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				2707D04220177D83003AEAE0 /* Primitives */,
 				279712952016607400AE513D /* Navigation Controllers */,
 				279712942016606C00AE513D /* Colors */,
 				279712832016152500AE513D /* View Controllers */,
@@ -664,6 +675,7 @@
 				27FA742D201295AD006D4B04 /* DataManager.swift in Sources */,
 				279712902016393400AE513D /* PokemonDetailsViewController.swift in Sources */,
 				276A5E662012B62C00D538F3 /* DataManagerError.swift in Sources */,
+				2707D04420177D91003AEAE0 /* IntExtension.swift in Sources */,
 				2797128A201615F600AE513D /* PokemonListViewControllerNetworkingExtension.swift in Sources */,
 				279712992016B4E100AE513D /* ApiClient.swift in Sources */,
 				276830B520155B250081D792 /* NewPokemonViewController.swift in Sources */,
