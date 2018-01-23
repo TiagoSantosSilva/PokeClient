@@ -15,18 +15,56 @@ class PokemonDetailsViewController: UIViewController {
     @IBOutlet weak var heightLabel: UILabel!
     @IBOutlet weak var weightLabel: UILabel!
     @IBOutlet weak var typeLabel: UILabel!
+    @IBOutlet weak var pokemonImage: UIImageView!
     
     var pokemon: Pokemon?
     var editButton: UIBarButtonItem!
     
+    var apiClient: ApiClient!
+    
+    convenience init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?, pokemon: Pokemon) {
+        self.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        self.pokemon = pokemon
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        apiClient = ApiClient(baseUrl: API.ImageUrl)
         setupController()
     }
     
     private func setupController() {
         setupLabels()
         setupNavigationController()
+        setupPokemonImage()
+    }
+    
+    private func setupPokemonImage() {
+        
+        guard let pokemonDexNumber = pokemon?.dexNumber else {
+            // TODO: Setup unknown image
+            return
+        }
+        
+        apiClient.getPokemonImageData(pokemonNumber: String(describing: pokemonDexNumber)) { (data, error) in
+            
+            guard error == nil, let imageData = data else {
+                print("Image fetch error. 🚨")
+                DispatchQueue.main.async {
+                    self.self.pokemonImage.image = UIImage(named: "unknown")
+                }
+                return
+            }
+            
+            DispatchQueue.main.async {
+                self.self.pokemonImage.image = UIImage(data: imageData)
+            }
+        }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.navigationBar.prefersLargeTitles = true
     }
     
     private func setupNavigationController() {
@@ -44,16 +82,6 @@ class PokemonDetailsViewController: UIViewController {
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        navigationController?.navigationBar.prefersLargeTitles = true
-    }
-    
-    convenience init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?, pokemon: Pokemon) {
-        self.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-        self.pokemon = pokemon
     }
     
     func setupLabels() {

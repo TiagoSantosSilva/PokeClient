@@ -26,11 +26,6 @@ class PokemonListViewController: UIViewController {
         getPokemonData()
     }
     
-//    override func viewWillDisappear(_ animated: Bool) {
-//        super.viewWillDisappear(animated)
-//        navigationController?.navigationBar.prefersLargeTitles = false
-//    }
-    
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }

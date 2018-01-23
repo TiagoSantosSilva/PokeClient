@@ -20,6 +20,7 @@
                 <outlet property="heightLabel" destination="PpY-GN-vCM" id="Pm3-oK-Jzf"/>
                 <outlet property="nameLabel" destination="r97-jf-Xln" id="SPH-KY-ORV"/>
                 <outlet property="numberLabel" destination="Y1S-Qw-IXt" id="kfU-rp-8yz"/>
+                <outlet property="pokemonImage" destination="Bk8-1J-i60" id="hoX-pN-2SS"/>
                 <outlet property="typeLabel" destination="o16-m0-qwa" id="MWy-6S-Wgx"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="weightLabel" destination="4QN-cv-Cp5" id="VRf-bx-KDv"/>
@@ -104,9 +105,18 @@
                     </constraints>
                     <viewLayoutGuide key="safeArea" id="utc-fO-v43"/>
                 </stackView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Bk8-1J-i60">
+                    <rect key="frame" x="139" y="358" width="96" height="96"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="96" id="pA3-Va-kdD"/>
+                        <constraint firstAttribute="height" constant="96" id="sbb-KM-KPR"/>
+                    </constraints>
+                </imageView>
             </subviews>
             <color key="backgroundColor" red="1" green="0.41568627450000001" blue="0.40784313729999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
             <constraints>
+                <constraint firstItem="Bk8-1J-i60" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="55i-po-b3n"/>
+                <constraint firstItem="Bk8-1J-i60" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="AnE-RI-1wX"/>
                 <constraint firstItem="2a4-b6-Gri" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="25" id="M11-8g-Gj0"/>
                 <constraint firstItem="kEo-hs-2HI" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="25" id="X49-sz-wVa"/>
                 <constraint firstItem="kEo-hs-2HI" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="tOX-up-VmI"/>
@@ -115,5 +125,9 @@
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="24.5" y="52"/>
         </view>
+        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="GXf-1o-beO">
+            <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+        </imageView>
     </objects>
 </document>
