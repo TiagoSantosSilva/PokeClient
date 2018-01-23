@@ -10,6 +10,12 @@ import UIKit
 
 class NewPokemonViewController: UIViewController {
 
+    
+    @IBOutlet weak var numberField: UITextField!
+    @IBOutlet weak var nameField: UITextField!
+    @IBOutlet weak var heightField: UITextField!
+    @IBOutlet weak var weightField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
