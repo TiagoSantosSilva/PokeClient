@@ -9,7 +9,7 @@
 import UIKit
 
 class PokemonCell: UITableViewCell {
-
+    
     @IBOutlet weak var dexNumberLabel: UILabel!
     @IBOutlet weak var pokemonNameLabel: UILabel!
     @IBOutlet weak var pokemonDetailsButton: UIButton!
@@ -35,8 +35,6 @@ class PokemonCell: UITableViewCell {
     }
     
     @IBAction func pokemonDetailsButtonTapped(_ sender: Any) {
-        print("Pokemon details button was tapped.")
-        
         pokemonListViewController.pushDetailsView(cell: self)
     }
 }
