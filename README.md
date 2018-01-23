@@ -5,4 +5,4 @@
 
 ### Credits
 
-* App icon made by [RoundIcons](https://www.flaticon.com/authors/roundicons-freebies) from [Flaticon](www.flaticon.com)
+* App icon made by [RoundIcons](https://www.flaticon.com/authors/roundicons-freebies) from [Flaticon](https://www.flaticon.com)
