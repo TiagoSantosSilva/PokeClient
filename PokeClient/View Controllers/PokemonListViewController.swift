@@ -15,6 +15,7 @@ class PokemonListViewController: UIViewController {
     internal let dataManager = DataManager<Pokemon>(baseUrl: API.BaseUrl)
     internal var pokemonList = [Pokemon]()
     internal var filteredPokemons = [Pokemon]()
+    internal var apiClient = ApiClient(baseUrl: API.ImageUrl)
     
     var searchController: UISearchController!
     

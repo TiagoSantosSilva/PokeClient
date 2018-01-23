@@ -22,6 +22,10 @@ extension PokemonListViewController: UITableViewDataSource, UITableViewDelegate 
         pokemonCell.dexNumberLabel.text = "#\(String(describing: pokemonNumber))"
         pokemonCell.pokemonNameLabel.text = pokemon.name
         pokemonCell.pokemonListViewController = self
+        
+//        DispatchQueue.main.async {
+//             pokemonCell.pokemonImage.image = self.setupPokemonImage(pokemon: pokemon)
+//        }
         return pokemonCell
     }
     

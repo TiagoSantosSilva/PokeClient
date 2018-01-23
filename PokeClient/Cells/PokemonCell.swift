@@ -13,6 +13,7 @@ class PokemonCell: UITableViewCell {
     @IBOutlet weak var dexNumberLabel: UILabel!
     @IBOutlet weak var pokemonNameLabel: UILabel!
     @IBOutlet weak var pokemonDetailsButton: UIButton!
+    @IBOutlet weak var pokemonImage: UIImageView!
     
     weak var pokemonListViewController: PokemonListViewController!
     
