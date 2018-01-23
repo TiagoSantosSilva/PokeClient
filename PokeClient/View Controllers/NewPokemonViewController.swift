@@ -8,9 +8,12 @@
 
 import UIKit
 
-class NewPokemonViewController: UIViewController {
+typealias PokemonCompletion = (Pokemon?) -> ()
 
+class NewPokemonViewController: UIViewController {
+    
     var dataManager = DataManager<Pokemon>(baseUrl: API.BaseUrl)
+    var pokemon: Pokemon?
     
     @IBOutlet weak var numberField: UITextField!
     @IBOutlet weak var nameField: UITextField!
@@ -19,8 +22,34 @@ class NewPokemonViewController: UIViewController {
     
     var pokemonListViewController: PokemonListViewController!
     
+    convenience init(pokemon: Pokemon, pokemonListViewController: PokemonListViewController) {
+        self.init()
+        self.pokemon = pokemon
+        self.pokemonListViewController = pokemonListViewController
+    }
+    
+    convenience init(pokemonListViewController: PokemonListViewController) {
+        self.init()
+        self.pokemonListViewController = pokemonListViewController
+    }
+    
+    fileprivate func setTextFieldContents() {
+        guard let pokemon = self.pokemon else { return }
+        
+        guard let pokemonNumber = pokemon.dexNumber else { return }
+        guard let pokemonName = pokemon.name else { return }
+        guard let pokemonHeight = pokemon.height else { return }
+        guard let pokemonWeight = pokemon.weight else { return }
+        
+        numberField.text = String(describing: pokemonNumber)
+        nameField.text = String(describing: pokemonName)
+        heightField.text = String(describing: pokemonHeight)
+        weightField.text = String(describing: pokemonWeight)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        setTextFieldContents()
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -34,28 +63,69 @@ extension NewPokemonViewController {
     }
     
     @IBAction func okButtonTapped(_ sender: Any) {
-       createPokemon()
+        preparePokemonData()
     }
     
-    func createPokemon() {
-        guard let number = numberField.text else { return }
-        guard let name = nameField.text else { return }
-        guard let height = heightField.text else { return }
-        guard let weight = weightField.text else { return }
+    func getPokemonInViewData() -> Pokemon? {
+        guard let number = numberField.text else { return nil }
+        guard let name = nameField.text else { return nil }
+        guard let height = heightField.text else { return nil }
+        guard let weight = weightField.text else { return nil }
         let type = "Grass"
         
-        let pokemon = Pokemon(id: nil, dexNumber: Int(number), name: name, height: Float(height), weight: Float(weight), type: type)
-        let encodedPokemon = try? JSONEncoder().encode(pokemon) as Data
+        let pokemonToReturn = Pokemon(id: pokemon?.id, dexNumber: Int(number), name: name, height: Float(height), weight: Float(weight), type: type)
+        return pokemonToReturn
+    }
+    
+    func preparePokemonData() {
+        let pokemonInView = getPokemonInViewData()
+        guard let pokemonToSend = pokemonInView else { return }
+        
+        let encodedPokemon = try? JSONEncoder().encode(pokemonToSend) as Data
         guard let data = encodedPokemon else { return }
         
-        dataManager.postData(endpoint: API.PokemonEndpoint, data: data) { (result, error) in
-            guard let pokemon = result as? Pokemon else {
-                // Present Alert Controller
-                return
-            }
-            
+        let requestTuple = getRequestEndpointAndMethod(pokemonToSendId: pokemonToSend.id)
+        let requestEndpoint = requestTuple.0
+        let requestMethod = requestTuple.1
+        
+        guard pokemon != nil else {
+            createPokemon(requestEndpoint: requestEndpoint, data: data, requestMethod: requestMethod)
+            return
+        }
+         editPokemon(requestEndpoint: requestEndpoint, data: data, requestMethod: requestMethod)
+    }
+    
+    func createPokemon(requestEndpoint: String, data: Data, requestMethod: String) {
+        sendRequest(forRequestEndpoint: requestEndpoint, data: data, andRequestMethod: requestMethod) { (pokemon) in
+            guard let pokemon = pokemon else { return }
             self.pokemonListViewController.newPokemonCreated(pokemon: pokemon)
             self.dismiss(animated: true, completion: nil)
+        }
+    }
+    
+    func editPokemon(requestEndpoint: String, data: Data, requestMethod: String) {
+        sendRequest(forRequestEndpoint: requestEndpoint, data: data, andRequestMethod: requestMethod) { (pokemon) in
+            guard let pokemon = pokemon else { return }
+            self.pokemonListViewController.pokemonEdited(pokemon: pokemon)
+            self.dismiss(animated: true, completion: nil)
+        }
+    }
+    
+    func getRequestEndpointAndMethod(pokemonToSendId: Int?) -> (String, String) {
+        guard let pokemonId = pokemonToSendId else {
+            return (endpoint: API.PokemonEndpoint, method: "POST")
+        }
+        return (endpoint: "\(API.PokemonEndpoint)/\(String(describing: pokemonId))", method: "PUT")
+    }
+    
+    private func sendRequest(forRequestEndpoint requestEndpoint: String, data: Data, andRequestMethod requestMethod: String, _ completion: @escaping PokemonCompletion) {
+        dataManager.postData(endpoint: requestEndpoint, data: data, method: requestMethod) { (result, error) in
+            guard let pokemon = result as? Pokemon else {
+                // Present Alert Controller
+                completion(nil)
+                return
+            }
+            completion(pokemon)
         }
     }
 }

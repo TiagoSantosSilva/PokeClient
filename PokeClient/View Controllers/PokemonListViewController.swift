@@ -38,7 +38,7 @@ class PokemonListViewController: UIViewController {
             return
         }
         
-        let pokemonDetailsViewController = PokemonDetailsViewController(nibName: "PokemonDetailsViewController", bundle: nil, pokemon: tappedPokemon)
+        let pokemonDetailsViewController = PokemonDetailsViewController(pokemon: tappedPokemon, pokemonListViewController: self)
         navigationController?.navigationBar.prefersLargeTitles = false
         navigationController?.pushViewController(pokemonDetailsViewController, animated: true)
     }
@@ -56,6 +56,11 @@ class PokemonListViewController: UIViewController {
         let newPokemonIndexPath = IndexPath(row: pokemonList.count - 1, section: 0)
         pokemonTableView.insertRows(at: [newPokemonIndexPath], with: .bottom)
         pokemonTableView.scrollToRow(at: newPokemonIndexPath, at: .bottom, animated: false)
+    }
+    
+    func pokemonEdited(pokemon: Pokemon) {
+        // Get Cell of pokemon By Id
+        // Pull into this View Controller?
     }
 }
 
@@ -105,8 +110,7 @@ extension PokemonListViewController {
     }
     
     @objc func newPokemonButtonTapped() {
-        let newPokemonViewController = NewPokemonViewController()
-        newPokemonViewController.pokemonListViewController = self
+        let newPokemonViewController = NewPokemonViewController(pokemonListViewController: self)
         present(newPokemonViewController, animated: true, completion: nil)
     }
 }

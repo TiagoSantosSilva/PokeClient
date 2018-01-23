@@ -61,12 +61,12 @@ final class DataManager<T: Codable> {
         return
     }
     
-    func postData(endpoint: String, data: Data, completion: @escaping DataCompletion) {
+    func postData(endpoint: String, data: Data, method: String, completion: @escaping DataCompletion) {
         let requestUrl = baseUrl.appendingPathComponent(endpoint)
         
         var request = URLRequest(url: requestUrl)
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.httpMethod = "POST"
+        request.httpMethod = method
         request.httpBody = data
         
         URLSession.shared.dataTask(with: request) { (data, response, error) in

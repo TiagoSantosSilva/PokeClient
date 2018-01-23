@@ -17,13 +17,15 @@ class PokemonDetailsViewController: UIViewController {
     @IBOutlet weak var typeLabel: UILabel!
     
     var pokemon: Pokemon?
+    var pokemonListViewController: PokemonListViewController?
     var editButton: UIBarButtonItem!
     
     var apiClient: ApiClient!
     
-    convenience init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?, pokemon: Pokemon) {
-        self.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+    convenience init(pokemon: Pokemon, pokemonListViewController: PokemonListViewController) {
+        self.init()
         self.pokemon = pokemon
+        self.pokemonListViewController = pokemonListViewController
     }
     
     override func viewDidLoad() {
@@ -51,8 +53,9 @@ class PokemonDetailsViewController: UIViewController {
     }
     
     @objc func editButtonTapped() {
-        // Display New Pokemon View Controller with details already filled.
-        print("Edit button tapped 👾")
+        guard let pokemon = pokemon else { return }
+        let editPokemonViewController = NewPokemonViewController(pokemon: pokemon, pokemonListViewController: pokemonListViewController!)
+        present(editPokemonViewController, animated: true, completion: nil)
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
