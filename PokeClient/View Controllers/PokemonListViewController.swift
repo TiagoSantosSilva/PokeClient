@@ -50,6 +50,12 @@ class PokemonListViewController: UIViewController {
         guard isFiltering() else { return pokemonList[index.row] }
         return filteredPokemons[index.row]
     }
+    
+    func newPokemonCreated(pokemon: Pokemon) {
+        pokemonList.append(pokemon)
+        let newPokemonIndexPath = IndexPath(row: pokemonList.count - 1, section: 0)
+        pokemonTableView.insertRows(at: [newPokemonIndexPath], with: .bottom)
+    }
 }
 
 extension PokemonListViewController {
@@ -99,6 +105,7 @@ extension PokemonListViewController {
     
     @objc func newPokemonButtonTapped() {
         let newPokemonViewController = NewPokemonViewController()
+        newPokemonViewController.pokemonListViewController = self
         present(newPokemonViewController, animated: true, completion: nil)
     }
 }

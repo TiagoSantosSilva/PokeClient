@@ -10,11 +10,14 @@ import UIKit
 
 class NewPokemonViewController: UIViewController {
 
+    var dataManager = DataManager<Pokemon>(baseUrl: API.BaseUrl)
     
     @IBOutlet weak var numberField: UITextField!
     @IBOutlet weak var nameField: UITextField!
     @IBOutlet weak var heightField: UITextField!
     @IBOutlet weak var weightField: UITextField!
+    
+    var pokemonListViewController: PokemonListViewController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +34,28 @@ extension NewPokemonViewController {
     }
     
     @IBAction func okButtonTapped(_ sender: Any) {
-        print("Ok button was tapped.")
+       createPokemon()
+    }
+    
+    func createPokemon() {
+        guard let number = numberField.text else { return }
+        guard let name = nameField.text else { return }
+        guard let height = heightField.text else { return }
+        guard let weight = weightField.text else { return }
+        let type = "Grass"
+        
+        let pokemon = Pokemon(id: nil, dexNumber: Int(number), name: name, height: Float(height), weight: Float(weight), type: type)
+        let encodedPokemon = try? JSONEncoder().encode(pokemon) as Data
+        guard let data = encodedPokemon else { return }
+        
+        dataManager.postData(endpoint: API.PokemonEndpoint, data: data) { (result, error) in
+            guard let pokemon = result as? Pokemon else {
+                // Present Alert Controller
+                return
+            }
+            
+            self.pokemonListViewController.newPokemonCreated(pokemon: pokemon)
+            self.dismiss(animated: true, completion: nil)
+        }
     }
 }
