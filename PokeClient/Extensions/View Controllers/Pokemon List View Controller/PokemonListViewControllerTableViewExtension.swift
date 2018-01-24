@@ -36,13 +36,48 @@ extension PokemonListViewController: UITableViewDataSource, UITableViewDelegate 
         tableView.reloadRows(at: [indexPath], with: .fade)
     }
     
-    // MARK: - Gets
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        
+        let lastInitialDisplayableCell = checkIfCellIsLastInitialDisplayableCell(indexPath: indexPath)
+        
+        if !finishedLoadingInitialTableCells {
+            finishedLoadingInitialTableCells = lastInitialDisplayableCell
+            let tableViewHeight = pokemonTableView.bounds.size.height
+            animateCellLoad(cell, tableViewHeight)
+        }
+    }
+}
+
+// MARK: - Animations
+extension PokemonListViewController {
+    private func animateCellLoad(_ cell: UITableViewCell, _ tableViewHeight: CGFloat) {
+        cell.transform = CGAffineTransform(translationX: 0, y: tableViewHeight)
+        
+        UIView.animate(withDuration: 1.5, delay: Double(delayCounter) * 0.05, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: .curveEaseInOut, animations: {
+            cell.transform = CGAffineTransform.identity
+        }, completion: nil)
+        delayCounter += 1
+    }
+    
+    func checkIfCellIsLastInitialDisplayableCell(indexPath: IndexPath) -> Bool {
+        guard !finishedLoadingInitialTableCells else { return false }
+        guard let indexPathForVisibleRows = pokemonTableView.indexPathsForVisibleRows,
+            let lastIndexPath = indexPathForVisibleRows.last,
+            lastIndexPath.row == indexPath.row else { return false }
+        return true
+    }
+}
+
+// MARK: - Gets
+extension PokemonListViewController {
     func getPokemonToCell(indexPath: IndexPath) -> Pokemon {
         guard isFiltering() else { return pokemonList[indexPath.row] }
         return filteredPokemons[indexPath.row]
     }
-    
-    // MARK: - Sets
+}
+
+// MARK: - Sets
+extension PokemonListViewController {
     private func setCellImage(_ pokemonNumber: Int, _ pokemonCell: PokemonCell) {
         apiClient.getPokemonImageData(pokemonNumber: String(describing: pokemonNumber)) { (data, error) in
             guard error == nil else {

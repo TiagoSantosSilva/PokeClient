@@ -18,6 +18,9 @@ class PokemonListViewController: UIViewController {
     internal var apiClient = ApiClient(baseUrl: API.ImageUrl)
     
     var searchController: UISearchController!
+    internal var delayCounter = 0
+    
+    internal var finishedLoadingInitialTableCells = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
