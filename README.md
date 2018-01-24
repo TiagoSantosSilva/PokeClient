@@ -1,6 +1,6 @@
 # PokeClient - Still WIP
 
-REST API - # [PokeApi](https://github.com/TiagoSantosSilva/PokeApi)
+Uses [PokeApi](https://github.com/TiagoSantosSilva/PokeApi) as the REST service.
 
 ### Screenshots (WIP)
 
