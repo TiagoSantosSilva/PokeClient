@@ -39,7 +39,6 @@ class PokemonListViewController: UIViewController {
         }
         
         let pokemonDetailsViewController = PokemonDetailsViewController(pokemon: tappedPokemon, pokemonListViewController: self)
-        navigationController?.navigationBar.prefersLargeTitles = false
         navigationController?.pushViewController(pokemonDetailsViewController, animated: true)
     }
     

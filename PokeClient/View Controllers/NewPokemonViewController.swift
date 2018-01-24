@@ -19,6 +19,7 @@ class NewPokemonViewController: UIViewController {
     @IBOutlet weak var nameField: UITextField!
     @IBOutlet weak var heightField: UITextField!
     @IBOutlet weak var weightField: UITextField!
+    @IBOutlet weak var typeField: UITextField!
     
     var pokemonListViewController: PokemonListViewController!
     
@@ -34,6 +35,7 @@ class NewPokemonViewController: UIViewController {
     }
     
     fileprivate func setTextFieldContents() {
+        typeField.text = "SCROLL VIEW PLACEHOLDER"
         guard let pokemon = self.pokemon else { return }
         
         guard let pokemonNumber = pokemon.dexNumber else { return }

@@ -20,6 +20,7 @@
                 <outlet property="heightField" destination="Rda-YN-tOv" id="Ga6-2t-D3p"/>
                 <outlet property="nameField" destination="gLy-Vm-cfo" id="e4B-k8-cdA"/>
                 <outlet property="numberField" destination="e0y-w2-01a" id="rJ7-f2-6cl"/>
+                <outlet property="typeField" destination="e7s-ey-JvF" id="R5A-lv-Hor"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="weightField" destination="Yoc-58-SZo" id="gig-9o-sic"/>
             </connections>
@@ -93,34 +94,41 @@
                     </constraints>
                 </stackView>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="64d-0G-Nbn">
-                    <rect key="frame" x="159" y="128" width="200" height="174"/>
+                    <rect key="frame" x="159" y="128" width="200" height="222"/>
                     <subviews>
-                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="e0y-w2-01a">
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="e0y-w2-01a">
                             <rect key="frame" x="0.0" y="0.0" width="200" height="30"/>
                             <color key="backgroundColor" red="0.22340890362470048" green="0.2792666218133259" blue="0.48071762621524661" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="17"/>
                             <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                         </textField>
-                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gLy-Vm-cfo">
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="gLy-Vm-cfo">
                             <rect key="frame" x="0.0" y="48" width="200" height="30"/>
                             <color key="backgroundColor" red="0.22340890362470048" green="0.2792666218133259" blue="0.48071762621524661" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="17"/>
                             <textInputTraits key="textInputTraits" keyboardAppearance="light" returnKeyType="continue"/>
                         </textField>
-                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Rda-YN-tOv">
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="Rda-YN-tOv">
                             <rect key="frame" x="0.0" y="96" width="200" height="30"/>
                             <color key="backgroundColor" red="0.22340890362470048" green="0.2792666218133259" blue="0.48071762621524661" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="17"/>
                             <textInputTraits key="textInputTraits"/>
                         </textField>
-                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Yoc-58-SZo">
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="Yoc-58-SZo">
                             <rect key="frame" x="0.0" y="144" width="200" height="30"/>
                             <color key="backgroundColor" red="0.22340890362470048" green="0.2792666218133259" blue="0.48071762621524661" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="17"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                        <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="6" translatesAutoresizingMaskIntoConstraints="NO" id="e7s-ey-JvF">
+                            <rect key="frame" x="0.0" y="192" width="200" height="30"/>
+                            <color key="backgroundColor" red="0.22340890359999999" green="0.2792666218" blue="0.48071762620000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <color key="textColor" red="1" green="0.3158783594982133" blue="0.24762672905303484" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="11"/>
                             <textInputTraits key="textInputTraits"/>
                         </textField>
                     </subviews>

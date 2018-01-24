@@ -38,16 +38,6 @@
                         <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d0r-3z-oto">
-                        <rect key="frame" x="274" y="16" width="30" height="37"/>
-                        <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="18"/>
-                        <state key="normal" title="&gt;">
-                            <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        </state>
-                        <connections>
-                            <action selector="pokemonDetailsButtonTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Yln-e4-YeW"/>
-                        </connections>
-                    </button>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="unkown" translatesAutoresizingMaskIntoConstraints="NO" id="PgX-E3-1jd">
                         <rect key="frame" x="12" y="12" width="35" height="35"/>
                         <constraints>
@@ -55,15 +45,29 @@
                             <constraint firstAttribute="height" constant="35" id="q8m-86-oKe"/>
                         </constraints>
                     </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d0r-3z-oto">
+                        <rect key="frame" x="284" y="25" width="20" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="CTG-AL-Bdw"/>
+                            <constraint firstAttribute="width" constant="20" id="dYP-L8-el3"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="18"/>
+                        <state key="normal" image="next">
+                            <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </state>
+                        <connections>
+                            <action selector="pokemonDetailsButtonTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Yln-e4-YeW"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <color key="backgroundColor" red="0.15686274510000001" green="0.1960784314" blue="0.33725490200000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                 <constraints>
-                    <constraint firstItem="d0r-3z-oto" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="480-2q-J52"/>
                     <constraint firstItem="c3K-tN-kgi" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="64Z-S5-CQu"/>
                     <constraint firstItem="c3K-tN-kgi" firstAttribute="centerY" secondItem="7b8-oQ-7K3" secondAttribute="centerY" constant="25" id="8n3-rH-yBS"/>
                     <constraint firstItem="c3K-tN-kgi" firstAttribute="top" secondItem="PgX-E3-1jd" secondAttribute="bottom" constant="5" id="G8i-OM-eAM"/>
-                    <constraint firstItem="d0r-3z-oto" firstAttribute="centerY" secondItem="7b8-oQ-7K3" secondAttribute="centerY" id="MaO-YA-n7b"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="d0r-3z-oto" secondAttribute="trailing" id="GQ0-UT-jUm"/>
                     <constraint firstItem="7b8-oQ-7K3" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="eYP-SC-ohd"/>
+                    <constraint firstItem="d0r-3z-oto" firstAttribute="centerY" secondItem="7b8-oQ-7K3" secondAttribute="centerY" id="jsa-z3-bU7"/>
                     <constraint firstItem="PgX-E3-1jd" firstAttribute="centerX" secondItem="c3K-tN-kgi" secondAttribute="centerX" id="pBJ-ls-k7v"/>
                     <constraint firstItem="7b8-oQ-7K3" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="uOP-Hx-7CG"/>
                 </constraints>
@@ -79,6 +83,7 @@
         </tableViewCell>
     </objects>
     <resources>
+        <image name="next" width="100" height="100"/>
         <image name="unkown" width="96" height="96"/>
     </resources>
 </document>

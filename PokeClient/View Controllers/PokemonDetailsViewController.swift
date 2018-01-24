@@ -41,7 +41,6 @@ class PokemonDetailsViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        navigationController?.navigationBar.prefersLargeTitles = true
     }
     
     private func setupNavigationController() {
