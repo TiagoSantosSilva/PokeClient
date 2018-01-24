@@ -1,6 +1,9 @@
-# PokeClient
+# PokeClient - Still WIP
 
+### Screenshots (WIP)
 
+![Screenshot 1](https://github.com/TiagoSantosSilva/PokeClient/blob/master/Screenshots/PokeClient%201.png)
+![Screenshot 2](https://github.com/TiagoSantosSilva/PokeClient/blob/master/Screenshots/PokeClient%202.png)
 
 
 ### Credits
