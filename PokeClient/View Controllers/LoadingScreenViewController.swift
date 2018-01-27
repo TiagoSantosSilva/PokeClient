@@ -12,13 +12,9 @@ class LoadingScreenViewController: UIViewController {
     
     private var loadingScreenViewModel: LoadingScreenViewModel!
     
-    convenience init() {
-        self.init()
-        loadingScreenViewModel = LoadingScreenViewModel(loadingScreenViewController: self)
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        loadingScreenViewModel = LoadingScreenViewModel(loadingScreenViewController: self)
         getStatusData()
     }
     
@@ -27,5 +23,6 @@ class LoadingScreenViewController: UIViewController {
     }
     
     internal func getStatusData() {
+        loadingScreenViewModel.getStatusData()
     }
 }
