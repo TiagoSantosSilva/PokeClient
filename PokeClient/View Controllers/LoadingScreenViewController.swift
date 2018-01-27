@@ -14,7 +14,6 @@ class LoadingScreenViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         getStatusData()
     }
     

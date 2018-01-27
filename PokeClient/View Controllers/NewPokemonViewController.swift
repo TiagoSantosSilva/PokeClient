@@ -7,21 +7,22 @@
 //
 
 import UIKit
+import Reachability
 
 typealias PokemonCompletion = (Pokemon?) -> ()
 
 class NewPokemonViewController: UIViewController {
     
-    var dataManager = DataManager<Pokemon>(baseUrl: API.BaseUrl)
-    var pokemon: Pokemon?
+    internal var dataManager = DataManager<Pokemon>(baseUrl: API.BaseUrl)
+    internal var pokemon: Pokemon?
+    internal var pokemonListViewController: PokemonListViewController!
+    internal var reachability: Reachability!
     
     @IBOutlet weak var numberField: UITextField!
     @IBOutlet weak var nameField: UITextField!
     @IBOutlet weak var heightField: UITextField!
     @IBOutlet weak var weightField: UITextField!
     @IBOutlet weak var typeField: UITextField!
-    
-    var pokemonListViewController: PokemonListViewController!
     
     convenience init(pokemon: Pokemon, pokemonListViewController: PokemonListViewController) {
         self.init()
@@ -52,10 +53,21 @@ class NewPokemonViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setTextFieldContents()
+        startNotifier()
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        addObserver()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        removeObserver()
     }
 }
 

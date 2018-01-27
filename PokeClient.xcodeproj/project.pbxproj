@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		2707D04420177D91003AEAE0 /* IntExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2707D04320177D91003AEAE0 /* IntExtension.swift */; };
+		271C147E201D1D0900BCDE18 /* PokemonListViewControllerReachabilityExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271C147D201D1D0900BCDE18 /* PokemonListViewControllerReachabilityExtension.swift */; };
+		271C1481201D1DD000BCDE18 /* ReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271C1480201D1DD000BCDE18 /* ReachabilityManager.swift */; };
+		271C1484201D1F1E00BCDE18 /* NewPokemonViewControllerReachabilityExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271C1483201D1F1E00BCDE18 /* NewPokemonViewControllerReachabilityExtension.swift */; };
+		271C1487201D205500BCDE18 /* PokemonDetailsViewControllerReachabilityExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271C1486201D205500BCDE18 /* PokemonDetailsViewControllerReachabilityExtension.swift */; };
 		276830B520155B250081D792 /* NewPokemonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276830B320155B250081D792 /* NewPokemonViewController.swift */; };
 		276830B620155B250081D792 /* NewPokemonViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 276830B420155B250081D792 /* NewPokemonViewController.xib */; };
 		276A5E662012B62C00D538F3 /* DataManagerError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276A5E652012B62C00D538F3 /* DataManagerError.swift */; };
@@ -28,6 +32,9 @@
 		279F59292015233600539A91 /* PokemonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 279F59272015233600539A91 /* PokemonCell.xib */; };
 		279F592C201542E600539A91 /* PokemonListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279F592A201542E600539A91 /* PokemonListViewController.swift */; };
 		279F592D201542E600539A91 /* PokemonListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 279F592B201542E600539A91 /* PokemonListViewController.xib */; };
+		27F5597B201CE7DE00E3FBC9 /* AppearanceConfigurations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F5597A201CE7DE00E3FBC9 /* AppearanceConfigurations.swift */; };
+		27F55980201CF3A200E3FBC9 /* NoConnectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F5597E201CF3A200E3FBC9 /* NoConnectionViewController.swift */; };
+		27F55981201CF3A200E3FBC9 /* NoConnectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27F5597F201CF3A200E3FBC9 /* NoConnectionViewController.xib */; };
 		27FA73F220128FD5006D4B04 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FA73F120128FD5006D4B04 /* AppDelegate.swift */; };
 		27FA740720128FD5006D4B04 /* PokeClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FA740620128FD5006D4B04 /* PokeClientTests.swift */; };
 		27FA741220128FD6006D4B04 /* PokeClientUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FA741120128FD6006D4B04 /* PokeClientUITests.swift */; };
@@ -59,6 +66,10 @@
 
 /* Begin PBXFileReference section */
 		2707D04320177D91003AEAE0 /* IntExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntExtension.swift; sourceTree = "<group>"; };
+		271C147D201D1D0900BCDE18 /* PokemonListViewControllerReachabilityExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonListViewControllerReachabilityExtension.swift; sourceTree = "<group>"; };
+		271C1480201D1DD000BCDE18 /* ReachabilityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReachabilityManager.swift; sourceTree = "<group>"; };
+		271C1483201D1F1E00BCDE18 /* NewPokemonViewControllerReachabilityExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPokemonViewControllerReachabilityExtension.swift; sourceTree = "<group>"; };
+		271C1486201D205500BCDE18 /* PokemonDetailsViewControllerReachabilityExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonDetailsViewControllerReachabilityExtension.swift; sourceTree = "<group>"; };
 		276830B320155B250081D792 /* NewPokemonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPokemonViewController.swift; sourceTree = "<group>"; };
 		276830B420155B250081D792 /* NewPokemonViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewPokemonViewController.xib; sourceTree = "<group>"; };
 		276A5E652012B62C00D538F3 /* DataManagerError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManagerError.swift; sourceTree = "<group>"; };
@@ -79,6 +90,9 @@
 		279F59272015233600539A91 /* PokemonCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PokemonCell.xib; sourceTree = "<group>"; };
 		279F592A201542E600539A91 /* PokemonListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonListViewController.swift; sourceTree = "<group>"; };
 		279F592B201542E600539A91 /* PokemonListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PokemonListViewController.xib; sourceTree = "<group>"; };
+		27F5597A201CE7DE00E3FBC9 /* AppearanceConfigurations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceConfigurations.swift; sourceTree = "<group>"; };
+		27F5597E201CF3A200E3FBC9 /* NoConnectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoConnectionViewController.swift; sourceTree = "<group>"; };
+		27F5597F201CF3A200E3FBC9 /* NoConnectionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoConnectionViewController.xib; sourceTree = "<group>"; };
 		27FA73EE20128FD5006D4B04 /* PokeClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PokeClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		27FA73F120128FD5006D4B04 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		27FA73FD20128FD5006D4B04 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -139,6 +153,30 @@
 			path = Primitives;
 			sourceTree = "<group>";
 		};
+		271C147F201D1DC600BCDE18 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				271C1480201D1DD000BCDE18 /* ReachabilityManager.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		271C1482201D1F0B00BCDE18 /* New Pokemon View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				271C1483201D1F1E00BCDE18 /* NewPokemonViewControllerReachabilityExtension.swift */,
+			);
+			path = "New Pokemon View Controller";
+			sourceTree = "<group>";
+		};
+		271C1485201D204400BCDE18 /* Pokemon Details View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				271C1486201D205500BCDE18 /* PokemonDetailsViewControllerReachabilityExtension.swift */,
+			);
+			path = "Pokemon Details View Controller";
+			sourceTree = "<group>";
+		};
 		276A5E642012B61C00D538F3 /* Enums */ = {
 			isa = PBXGroup;
 			children = (
@@ -151,6 +189,8 @@
 			isa = PBXGroup;
 			children = (
 				2797128B2016164700AE513D /* Loading Screen View Controller */,
+				271C1482201D1F0B00BCDE18 /* New Pokemon View Controller */,
+				271C1485201D204400BCDE18 /* Pokemon Details View Controller */,
 				279712842016152D00AE513D /* Pokemon List View Controller */,
 			);
 			path = "View Controllers";
@@ -159,9 +199,10 @@
 		279712842016152D00AE513D /* Pokemon List View Controller */ = {
 			isa = PBXGroup;
 			children = (
+				27971289201615F600AE513D /* PokemonListViewControllerNetworkingExtension.swift */,
+				271C147D201D1D0900BCDE18 /* PokemonListViewControllerReachabilityExtension.swift */,
 				279712852016155200AE513D /* PokemonListViewControllerTableViewExtension.swift */,
 				27971287201615BC00AE513D /* PokemonListViewControllerUISearchExtension.swift */,
-				27971289201615F600AE513D /* PokemonListViewControllerNetworkingExtension.swift */,
 			);
 			path = "Pokemon List View Controller";
 			sourceTree = "<group>";
@@ -202,9 +243,9 @@
 		279F59182014F34100539A91 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				2707D04220177D83003AEAE0 /* Primitives */,
-				279712952016607400AE513D /* Navigation Controllers */,
 				279712942016606C00AE513D /* Colors */,
+				279712952016607400AE513D /* Navigation Controllers */,
+				2707D04220177D83003AEAE0 /* Primitives */,
 				279712832016152500AE513D /* View Controllers */,
 			);
 			path = Extensions;
@@ -213,10 +254,11 @@
 		279F5923201522F400539A91 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				279F59142014C24200539A91 /* LoadingScreenViewController.xib */,
 				276830B420155B250081D792 /* NewPokemonViewController.xib */,
+				27F5597F201CF3A200E3FBC9 /* NoConnectionViewController.xib */,
 				2797128F2016393400AE513D /* PokemonDetailsViewController.xib */,
 				279F592B201542E600539A91 /* PokemonListViewController.xib */,
-				279F59142014C24200539A91 /* LoadingScreenViewController.xib */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -262,17 +304,18 @@
 		27FA73F020128FD5006D4B04 /* PokeClient */ = {
 			isa = PBXGroup;
 			children = (
-				279F59252015231B00539A91 /* Cells */,
-				279F59182014F34100539A91 /* Extensions */,
-				279F59172014C24900539A91 /* XIBs */,
-				276A5E642012B61C00D538F3 /* Enums */,
-				27FA742B2012959F006D4B04 /* Managers */,
-				27FA742A201294B4006D4B04 /* Models */,
 				27FA741F20128FDF006D4B04 /* Application Delegate */,
+				279F59252015231B00539A91 /* Cells */,
+				276A5E642012B61C00D538F3 /* Enums */,
+				279F59182014F34100539A91 /* Extensions */,
+				27FA742A201294B4006D4B04 /* Models */,
+				27FA742B2012959F006D4B04 /* Networking */,
+				271C147F201D1DC600BCDE18 /* Protocols */,
 				27FA742220129040006D4B04 /* Resources */,
 				27FA742120129038006D4B04 /* Storyboards */,
 				27FA742320129046006D4B04 /* Supporting Files */,
 				27FA742020129033006D4B04 /* View Controllers */,
+				279F59172014C24900539A91 /* XIBs */,
 			);
 			path = PokeClient;
 			sourceTree = "<group>";
@@ -299,6 +342,7 @@
 			isa = PBXGroup;
 			children = (
 				27FA73F120128FD5006D4B04 /* AppDelegate.swift */,
+				27F5597A201CE7DE00E3FBC9 /* AppearanceConfigurations.swift */,
 			);
 			path = "Application Delegate";
 			sourceTree = "<group>";
@@ -307,9 +351,10 @@
 			isa = PBXGroup;
 			children = (
 				279F59132014C24200539A91 /* LoadingScreenViewController.swift */,
-				279F592A201542E600539A91 /* PokemonListViewController.swift */,
 				276830B320155B250081D792 /* NewPokemonViewController.swift */,
+				27F5597E201CF3A200E3FBC9 /* NoConnectionViewController.swift */,
 				2797128E2016393400AE513D /* PokemonDetailsViewController.swift */,
+				279F592A201542E600539A91 /* PokemonListViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -342,19 +387,19 @@
 			isa = PBXGroup;
 			children = (
 				27FA7428201294A3006D4B04 /* API.swift */,
-				27FA742E2012AD51006D4B04 /* Status.swift */,
 				279F590D2014BD3B00539A91 /* Pokemon.swift */,
+				27FA742E2012AD51006D4B04 /* Status.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
 		};
-		27FA742B2012959F006D4B04 /* Managers */ = {
+		27FA742B2012959F006D4B04 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				27FA742C201295AD006D4B04 /* DataManager.swift */,
 				279712982016B4E100AE513D /* ApiClient.swift */,
+				27FA742C201295AD006D4B04 /* DataManager.swift */,
 			);
-			path = Managers;
+			path = Networking;
 			sourceTree = "<group>";
 		};
 		917D662CFB8149C95CA7F148 /* Frameworks */ = {
@@ -499,6 +544,7 @@
 				279F59292015233600539A91 /* PokemonCell.xib in Resources */,
 				279712912016393400AE513D /* PokemonDetailsViewController.xib in Resources */,
 				276830B620155B250081D792 /* NewPokemonViewController.xib in Resources */,
+				27F55981201CF3A200E3FBC9 /* NoConnectionViewController.xib in Resources */,
 				279F59162014C24200539A91 /* LoadingScreenViewController.xib in Resources */,
 				279712972016956400AE513D /* Assets.xcassets in Resources */,
 				27FA742520129060006D4B04 /* Main.storyboard in Resources */,
@@ -559,13 +605,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PokeClient-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		4AF492039023126D21287A38 /* [CP] Copy Pods Resources */ = {
@@ -589,13 +638,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PokeClientUITests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		6913CC2C9D02AF5ED90220EB /* [CP] Copy Pods Resources */ = {
@@ -619,13 +671,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PokeClientTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		CFF2378E5310589C3ED2BFFB /* [CP] Embed Pods Frameworks */ = {
@@ -634,9 +689,12 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-PokeClient/Pods-PokeClient-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/ReachabilitySwift/Reachability.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reachability.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -670,19 +728,25 @@
 				279712932016603400AE513D /* UINavigationControllerExtension.swift in Sources */,
 				279F591B2014F35800539A91 /* UIColorExtension.swift in Sources */,
 				279F59152014C24200539A91 /* LoadingScreenViewController.swift in Sources */,
+				27F55980201CF3A200E3FBC9 /* NoConnectionViewController.swift in Sources */,
 				279712862016155200AE513D /* PokemonListViewControllerTableViewExtension.swift in Sources */,
 				279F59282015233600539A91 /* PokemonCell.swift in Sources */,
 				27FA742D201295AD006D4B04 /* DataManager.swift in Sources */,
+				271C1487201D205500BCDE18 /* PokemonDetailsViewControllerReachabilityExtension.swift in Sources */,
+				271C147E201D1D0900BCDE18 /* PokemonListViewControllerReachabilityExtension.swift in Sources */,
 				279712902016393400AE513D /* PokemonDetailsViewController.swift in Sources */,
+				271C1481201D1DD000BCDE18 /* ReachabilityManager.swift in Sources */,
 				276A5E662012B62C00D538F3 /* DataManagerError.swift in Sources */,
 				2707D04420177D91003AEAE0 /* IntExtension.swift in Sources */,
 				2797128A201615F600AE513D /* PokemonListViewControllerNetworkingExtension.swift in Sources */,
 				279712992016B4E100AE513D /* ApiClient.swift in Sources */,
 				276830B520155B250081D792 /* NewPokemonViewController.swift in Sources */,
 				27971288201615BC00AE513D /* PokemonListViewControllerUISearchExtension.swift in Sources */,
+				27F5597B201CE7DE00E3FBC9 /* AppearanceConfigurations.swift in Sources */,
 				27FA7429201294A3006D4B04 /* API.swift in Sources */,
 				279F592C201542E600539A91 /* PokemonListViewController.swift in Sources */,
 				27FA73F220128FD5006D4B04 /* AppDelegate.swift in Sources */,
+				271C1484201D1F1E00BCDE18 /* NewPokemonViewControllerReachabilityExtension.swift in Sources */,
 				2797128D2016165E00AE513D /* LoadingScreenViewControllerAlertControllerExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -8,7 +8,7 @@ target 'PokeClient' do
   use_frameworks!
 
   # Pods for PokeClient
-  pod 'Result'
+  pod 'ReachabilitySwift'
 
   target 'PokeClientTests' do
     inherit! :search_paths

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Reachability
 
 class PokemonDetailsViewController: UIViewController {
 
@@ -16,11 +17,12 @@ class PokemonDetailsViewController: UIViewController {
     @IBOutlet weak var weightLabel: UILabel!
     @IBOutlet weak var typeLabel: UILabel!
     
-    var pokemon: Pokemon?
-    var pokemonListViewController: PokemonListViewController?
-    var editButton: UIBarButtonItem!
+    internal var pokemon: Pokemon?
+    internal var pokemonListViewController: PokemonListViewController?
+    internal var editButton: UIBarButtonItem!
     
-    var apiClient: ApiClient!
+    internal var apiClient: ApiClient!
+    internal var reachability: Reachability!
     
     convenience init(pokemon: Pokemon, pokemonListViewController: PokemonListViewController) {
         self.init()
@@ -37,10 +39,17 @@ class PokemonDetailsViewController: UIViewController {
     private func setupController() {
         setupLabels()
         setupNavigationController()
+        startNotifier()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        addObserver()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        removeObserver()
     }
     
     private func setupNavigationController() {

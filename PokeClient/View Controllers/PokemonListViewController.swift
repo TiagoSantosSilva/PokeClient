@@ -7,27 +7,45 @@
 //
 
 import UIKit
+import Reachability
 
 class PokemonListViewController: UIViewController {
     
     @IBOutlet weak var pokemonTableView: UITableView!
     
+    internal var apiClient = ApiClient(baseUrl: API.ImageUrl)
     internal let dataManager = DataManager<Pokemon>(baseUrl: API.BaseUrl)
+    
     internal var pokemonList = [Pokemon]()
     internal var filteredPokemons = [Pokemon]()
-    internal var apiClient = ApiClient(baseUrl: API.ImageUrl)
     
-    var searchController: UISearchController!
+    internal var searchController: UISearchController!
     internal var delayCounter = 0
-    
     internal var finishedLoadingInitialTableCells = false
+    
+    internal var reachability: Reachability!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.prefersLargeTitles = true
+        setupView()
+    }
+    
+    private func setupView() {
         setupNavigationBar()
         setupTableView()
         getPokemonData()
+        startNotifier()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        removeObserver()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        addObserver()
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
