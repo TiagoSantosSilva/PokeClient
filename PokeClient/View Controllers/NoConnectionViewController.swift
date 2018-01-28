@@ -10,7 +10,7 @@ import UIKit
 import Reachability
 
 class NoConnectionViewController: UIViewController {
-
+    
     private var reachability: Reachability!
     
     convenience init(reachability: Reachability) {
@@ -20,15 +20,20 @@ class NoConnectionViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        addObservers()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        addObserver()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        removeObserver()
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
-    }
-    
-    fileprivate func addObservers() {
-        NotificationCenter.default.addObserver(self, selector: #selector(reachabilityChanged), name: .reachabilityChanged, object: reachability)
     }
     
     @objc func reachabilityChanged(note: Notification) {
@@ -41,5 +46,19 @@ class NoConnectionViewController: UIViewController {
         case .none:
             return
         }
+    }
+}
+
+extension NoConnectionViewController: ReachabilityManager {
+    func addObserver() {
+        NotificationCenter.default.addObserver(self, selector: #selector(reachabilityChanged), name: .reachabilityChanged, object: reachability)
+    }
+    
+    func removeObserver() {
+        NotificationCenter.default.removeObserver(self, name: .reachabilityChanged, object: reachability)
+    }
+    
+    func startNotifier() {
+        return
     }
 }
