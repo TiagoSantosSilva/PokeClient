@@ -15,7 +15,10 @@ extension PokemonListViewController {
         dataManager.getData(endpoint: API.PokemonEndpoint) { (response, error) in
             guard let pokemonListFromResponse = response as! [Pokemon]? else { return }
             self.pokemonList = pokemonListFromResponse
-            self.pokemonTableView.reloadData()
+            
+            DispatchQueue.main.async {
+                self.pokemonTableView.reloadData()
+            }
         }
     }
 }
