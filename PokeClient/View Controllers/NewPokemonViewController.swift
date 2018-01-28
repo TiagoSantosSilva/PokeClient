@@ -11,12 +11,11 @@ import Reachability
 
 typealias PokemonCompletion = (Pokemon?) -> ()
 
-class NewPokemonViewController: UIViewController {
+class NewPokemonViewController: BaseViewController {
     
     internal var newPokemonViewModel: NewPokemonViewModel!
     internal var pokemon: Pokemon?
     internal var pokemonListViewController: PokemonListViewController!
-    internal var reachability: Reachability!
     
     @IBOutlet weak var heightField: UITextField!
     @IBOutlet weak var nameField: UITextField!
@@ -40,7 +39,6 @@ class NewPokemonViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
-        startNotifier()
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -49,12 +47,10 @@ class NewPokemonViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        addObserver()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        removeObserver()
     }
 }
 

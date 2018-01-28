@@ -9,12 +9,11 @@
 import UIKit
 import Reachability
 
-class PokemonDetailsViewController: UIViewController {
+class PokemonDetailsViewController: BaseViewController {
 
     internal var pokemon: Pokemon?
     internal var pokemonDetailsViewModel: PokemonDetailsViewModel!
     internal var pokemonListViewController: PokemonListViewController?
-    internal var reachability: Reachability!
     
     @IBOutlet weak var numberLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
@@ -37,17 +36,14 @@ class PokemonDetailsViewController: UIViewController {
     private func setupViewController() {
         setupLabels()
         setupNavigationController()
-        startNotifier()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        addObserver()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        removeObserver()
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {

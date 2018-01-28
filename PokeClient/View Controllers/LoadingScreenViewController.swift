@@ -10,7 +10,7 @@ import UIKit
 
 typealias BooleanCompletion = (Bool) -> ()
 
-class LoadingScreenViewController: UIViewController {
+class LoadingScreenViewController: BaseViewController {
     
     private var loadingScreenViewModel: LoadingScreenViewModel!
     

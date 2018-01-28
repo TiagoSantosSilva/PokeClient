@@ -1,24 +1,24 @@
 //
-//  NewPokemonViewControllerReachabilityExtension.swift
+//  BaseViewControllerReachabilityExtension.swift
 //  PokeClient
 //
-//  Created by Tiago Santos on 27/01/18.
+//  Created by Tiago Santos on 28/01/18.
 //  Copyright © 2018 Tiago Santos. All rights reserved.
 //
 
 import Foundation
 import Reachability
 
-extension NewPokemonViewController: ReachabilityManager {
-    func addObserver() {
+extension BaseViewController: ReachabilityManager {
+    internal func addObserver() {
         NotificationCenter.default.addObserver(self, selector: #selector(reachabilityChanged), name: .reachabilityChanged, object: reachability)
     }
     
-    func removeObserver() {
+    internal func removeObserver() {
         NotificationCenter.default.removeObserver(self, name: .reachabilityChanged, object: reachability)
     }
     
-    func startNotifier() {
+    internal func startNotifier() {
         reachability = Reachability()
         
         do {
@@ -28,7 +28,7 @@ extension NewPokemonViewController: ReachabilityManager {
         }
     }
     
-    @objc func reachabilityChanged(note: Notification) {
+    @objc internal func reachabilityChanged(note: Notification) {
         let reachability = note.object as! Reachability
         
         switch reachability.connection {
