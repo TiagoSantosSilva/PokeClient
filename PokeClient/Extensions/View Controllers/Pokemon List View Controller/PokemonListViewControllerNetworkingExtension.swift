@@ -24,7 +24,9 @@ extension PokemonListViewController {
     }
     
     internal func getPokemonTypes() {
-        
-        
+        pokemonListViewModel.getTypes { (pokemonTypeList) in
+            guard let pokemonTypeList = pokemonTypeList else { return }
+            self.pokemonTypes = pokemonTypeList
+        }
     }
 }
