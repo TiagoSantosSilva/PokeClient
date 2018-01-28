@@ -320,7 +320,6 @@
 		27FA73F020128FD5006D4B04 /* PokeClient */ = {
 			isa = PBXGroup;
 			children = (
-				278C3DDD201D3A940056DE60 /* View Models */,
 				27FA741F20128FDF006D4B04 /* Application Delegate */,
 				279F59252015231B00539A91 /* Cells */,
 				276A5E642012B61C00D538F3 /* Enums */,
@@ -332,6 +331,7 @@
 				27FA742120129038006D4B04 /* Storyboards */,
 				27FA742320129046006D4B04 /* Supporting Files */,
 				27FA742020129033006D4B04 /* View Controllers */,
+				278C3DDD201D3A940056DE60 /* View Models */,
 				279F59172014C24900539A91 /* XIBs */,
 			);
 			path = PokeClient;

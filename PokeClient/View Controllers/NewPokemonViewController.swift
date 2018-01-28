@@ -28,18 +28,18 @@ class NewPokemonViewController: UIViewController {
         self.init()
         self.pokemon = pokemon
         self.pokemonListViewController = pokemonListViewController
-        self.newPokemonViewModel = NewPokemonViewModel(newPokemonViewController: self, pokemon: pokemon)
+        self.newPokemonViewModel = NewPokemonViewModel()
     }
     
     convenience init(pokemonListViewController: PokemonListViewController) {
         self.init()
         self.pokemonListViewController = pokemonListViewController
-        self.newPokemonViewModel = NewPokemonViewModel(newPokemonViewController: self, pokemon: nil)
+        self.newPokemonViewModel = NewPokemonViewModel()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        newPokemonViewModel.setupView()
+        setupView()
         startNotifier()
     }
     
@@ -58,12 +58,70 @@ class NewPokemonViewController: UIViewController {
     }
 }
 
+// MARK: - IBActions
 extension NewPokemonViewController {
     @IBAction func cancelButtonTapped(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
     
     @IBAction func okButtonTapped(_ sender: Any) {
-        newPokemonViewModel.preparePokemonData()
+        createOrEditPokemon()
+    }
+}
+
+// MARK: - Handlers
+extension NewPokemonViewController {
+    internal func createOrEditPokemon() {
+        guard let pokemonInView = getPokemonInViewData() else { return }
+        
+        newPokemonViewModel.performRequest(pokemon: pokemonInView) { (pokemonFromRequest) in
+            guard let pokemonFromRequest = pokemonFromRequest else { return }
+            self.handlePokemonRequestResult(pokemonFromRequest: pokemonFromRequest)
+        }
+    }
+    
+    internal func handlePokemonRequestResult(pokemonFromRequest: Pokemon) {
+        guard self.pokemon != nil else {
+            self.pokemonListViewController.newPokemonCreated(pokemon: pokemonFromRequest)
+            self.dismiss(animated: true, completion: nil)
+            return
+        }
+        self.pokemonListViewController.pokemonEdited(pokemon: pokemonFromRequest)
+        self.dismiss(animated: true, completion: nil)
+    }
+}
+
+extension NewPokemonViewController {
+    internal func getPokemonInViewData() -> Pokemon? {
+        guard let number = numberField.text else { return nil }
+        guard let name = nameField.text else { return nil }
+        guard let height = heightField.text else { return nil }
+        guard let weight = weightField.text else { return nil }
+        let type = "Grass"
+        
+        let pokemonToReturn = Pokemon(id: pokemon?.id, dexNumber: Int(number), name: name, height: Float(height), weight: Float(weight), type: type)
+        return pokemonToReturn
+    }
+}
+
+// MARK: - Setups
+extension NewPokemonViewController {
+    internal func setupView() {
+        setTextFieldContents()
+    }
+    
+    internal func setTextFieldContents() {
+        typeField.text = "SCROLL VIEW PLACEHOLDER"
+        guard let pokemon = pokemon else { return }
+        
+        guard let pokemonNumber = pokemon.dexNumber else { return }
+        guard let pokemonName = pokemon.name else { return }
+        guard let pokemonHeight = pokemon.height else { return }
+        guard let pokemonWeight = pokemon.weight else { return }
+        
+        numberField.text = String(describing: pokemonNumber)
+        nameField.text = String(describing: pokemonName)
+        heightField.text = String(describing: pokemonHeight)
+        weightField.text = String(describing: pokemonWeight)
     }
 }
