@@ -17,7 +17,7 @@ class ApiClient {
         self.baseUrl = baseUrl
     }
     
-    func getPokemonImageData(pokemonNumber: String, completion: @escaping ImageDataCompletion) {
+    func getImageData(pokemonNumber: String, completion: @escaping ImageDataCompletion) {
         
         guard let url = setImageRequestUrl(pokemonNumber: pokemonNumber) else {
             completion(nil, nil)
@@ -25,6 +25,11 @@ class ApiClient {
         }
         
         URLSession.shared.dataTask(with: url) { (data, response, error) in
+            guard error == nil else {
+                completion(nil, .InvalidResponse)
+                return
+            }
+            
             completion(data, nil)
         }.resume()
     }

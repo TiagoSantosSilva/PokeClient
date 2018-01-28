@@ -79,26 +79,21 @@ extension PokemonListViewController {
 // MARK: - Sets
 extension PokemonListViewController {
     private func setCellImage(_ pokemonNumber: Int, _ pokemonCell: PokemonCell) {
-        apiClient.getPokemonImageData(pokemonNumber: String(describing: pokemonNumber)) { (data, error) in
-            guard error == nil else {
-                DispatchQueue.main.async {
-                    pokemonCell.pokemonImage.image = UIImage(named: "unkown")
-                }
-                return
-            }
-            
+        pokemonListViewModel.getImageData(pokemonNumber: pokemonNumber) { (data, error) in
             guard let imageData = data else {
                 DispatchQueue.main.async {
                     pokemonCell.pokemonImage.image = UIImage(named: "unkown")
                 }
                 return
             }
+            
             DispatchQueue.main.async {
                 pokemonCell.pokemonImage.image = UIImage(data: imageData)
             }
         }
     }
     
+    // TODO:  Move to ViewModel?
     private func setPokemonNumber(pokemonNumber: Int, pokemonCell: PokemonCell) {
         var digitCount = pokemonNumber.numberOfDigits()
         var dexNumberString = "#"

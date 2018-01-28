@@ -1,15 +1,35 @@
 //
-//  PokemonListViewControllerReachabilityExtension.swift
+//  BaseViewController.swift
 //  PokeClient
 //
-//  Created by Tiago Santos on 27/01/18.
+//  Created by Tiago Santos on 28/01/18.
 //  Copyright © 2018 Tiago Santos. All rights reserved.
 //
 
-import Foundation
+import UIKit
 import Reachability
 
-extension PokemonListViewController: ReachabilityManager {
+class BaseViewController: UIViewController {
+    
+    internal var reachability: Reachability!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        startNotifier()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        addObserver()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        removeObserver()
+    }
+}
+
+extension BaseViewController: ReachabilityManager {
     func addObserver() {
         NotificationCenter.default.addObserver(self, selector: #selector(reachabilityChanged), name: .reachabilityChanged, object: reachability)
     }
@@ -33,6 +53,7 @@ extension PokemonListViewController: ReachabilityManager {
         
         switch reachability.connection {
         case .none:
+            print("Network not reachable")
             let noConnectionViewController = NoConnectionViewController(reachability: reachability)
             present(noConnectionViewController, animated: true, completion: nil)
         default:
