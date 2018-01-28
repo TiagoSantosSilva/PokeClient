@@ -9,6 +9,7 @@
 import Foundation
 
 typealias PokemonListCompletion = ([Pokemon]?) -> ()
+typealias PokemonTypeListCompletion = ([PokemonType]?) -> ()
 
 class PokemonListViewModel {
     
@@ -16,7 +17,7 @@ class PokemonListViewModel {
     private let dataManager = DataManager(baseUrl: API.BaseUrl)
     
     func getData(_ completion: @escaping PokemonListCompletion) {
-        dataManager.getData(endpoint: API.PokemonsEndpoint, Pokemon.self) { (response, error) in
+        dataManager.getData(endpoint: API.PokemonsEndpoint, [Pokemon].self) { (response, error) in
             guard let pokemonListFromResponse = response as! [Pokemon]? else {
                 completion(nil)
                 return
@@ -32,6 +33,17 @@ class PokemonListViewModel {
                 return
             }
             completion(data, nil)
+        }
+    }
+    
+    func getTypes(_ completion: @escaping PokemonTypeListCompletion) {
+        dataManager.getData(endpoint: API.PokemonTypesEndpoint, [PokemonType].self) { (response, error) in
+            guard let typeListFromResponse = response as! [PokemonType]? else {
+                completion(nil)
+                return
+            }
+            print(typeListFromResponse)
+            completion(typeListFromResponse)
         }
     }
 }

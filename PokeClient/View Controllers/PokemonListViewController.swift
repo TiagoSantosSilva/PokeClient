@@ -22,7 +22,7 @@ class PokemonListViewController: BaseViewController {
     internal var delayCounter = 0
     internal var finishedLoadingInitialTableCells = false
     
-    // internal var pokemonTypes = [String]()
+    internal var pokemonTypes = [PokemonType]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,6 +39,7 @@ class PokemonListViewController: BaseViewController {
     
     private func getData() {
         getPokemonData()
+        getPokemonTypes()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -60,7 +61,7 @@ class PokemonListViewController: BaseViewController {
             return
         }
         
-        let pokemonDetailsViewController = PokemonDetailsViewController(pokemon: tappedPokemon, pokemonListViewController: self)
+        let pokemonDetailsViewController = PokemonDetailsViewController(pokemon: tappedPokemon, pokemonTypes: pokemonTypes, pokemonListViewController: self)
         navigationController?.pushViewController(pokemonDetailsViewController, animated: true)
     }
     
@@ -79,8 +80,8 @@ class PokemonListViewController: BaseViewController {
         pokemonTableView.scrollToRow(at: newPokemonIndexPath, at: .bottom, animated: false)
     }
     
+    // TODO: - Get Cell of pokemon By Id
+    // Pull into this View Controller?
     func pokemonEdited(pokemon: Pokemon) {
-        // Get Cell of pokemon By Id
-        // Pull into this View Controller?
     }
 }

@@ -16,6 +16,7 @@ class NewPokemonViewController: BaseViewController {
     internal var newPokemonViewModel: NewPokemonViewModel!
     internal var pokemon: Pokemon?
     internal var pokemonListViewController: PokemonListViewController!
+    internal var pokemonTypes: [PokemonType]!
     
     @IBOutlet weak var heightField: UITextField!
     @IBOutlet weak var nameField: UITextField!
@@ -23,17 +24,19 @@ class NewPokemonViewController: BaseViewController {
     @IBOutlet weak var typeField: UITextField!
     @IBOutlet weak var weightField: UITextField!
     
-    convenience init(pokemon: Pokemon, pokemonListViewController: PokemonListViewController) {
+    convenience init(pokemon: Pokemon, pokemonTypes: [PokemonType], pokemonListViewController: PokemonListViewController) {
         self.init()
         self.pokemon = pokemon
         self.pokemonListViewController = pokemonListViewController
         self.newPokemonViewModel = NewPokemonViewModel()
+        self.pokemonTypes = pokemonTypes
     }
     
-    convenience init(pokemonListViewController: PokemonListViewController) {
+    convenience init(pokemonTypes: [PokemonType], pokemonListViewController: PokemonListViewController) {
         self.init()
         self.pokemonListViewController = pokemonListViewController
         self.newPokemonViewModel = NewPokemonViewModel()
+        self.pokemonTypes = pokemonTypes
     }
     
     override func viewDidLoad() {
@@ -111,11 +114,11 @@ extension NewPokemonViewController: UIPickerViewDelegate, UIPickerViewDataSource
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return pokemonTypes[row]
+        return pokemonTypes[row].type
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        typeField.text = pokemonTypes[row]
+        typeField.text = pokemonTypes[row].type
     }
     
     internal func setupView() {

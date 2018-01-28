@@ -22,4 +22,9 @@ extension PokemonListViewController {
             }
         }
     }
+    
+    internal func getPokemonTypes() {
+        
+        
+    }
 }

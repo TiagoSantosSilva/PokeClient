@@ -50,11 +50,7 @@ final class DataManager {
     
     private func processData<T: Codable>(data: Data, _ type: T.Type, completion: DataCompletion) {
         guard let dataDecoded = try? JSONDecoder().decode(T.self, from: data) as AnyObject else {
-            guard let dataDecoded = try? JSONDecoder().decode([T].self, from: data) as AnyObject else {
-                completion(nil, .InvalidResponse)
-                return
-            }
-            completion(dataDecoded, nil)
+            completion(nil, .InvalidResponse)
             return
         }
         

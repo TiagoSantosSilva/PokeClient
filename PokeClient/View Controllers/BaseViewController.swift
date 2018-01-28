@@ -12,11 +12,10 @@ import Reachability
 class BaseViewController: UIViewController {
     
     internal var reachability: Reachability!
-    internal var pokemonTypes: [String]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        startNotifier()
+        setupViewController()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -27,5 +26,9 @@ class BaseViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         removeObserver()
+    }
+    
+    fileprivate func setupViewController() {
+        startNotifier()
     }
 }

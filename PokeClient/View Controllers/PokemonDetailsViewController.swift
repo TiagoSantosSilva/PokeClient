@@ -15,15 +15,18 @@ class PokemonDetailsViewController: BaseViewController {
     internal var pokemonDetailsViewModel: PokemonDetailsViewModel!
     internal var pokemonListViewController: PokemonListViewController?
     
+    internal var pokemonTypes: [PokemonType]!
+    
     @IBOutlet weak var numberLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var heightLabel: UILabel!
     @IBOutlet weak var weightLabel: UILabel!
     @IBOutlet weak var typeLabel: UILabel!
     
-    convenience init(pokemon: Pokemon, pokemonListViewController: PokemonListViewController) {
+    convenience init(pokemon: Pokemon, pokemonTypes: [PokemonType], pokemonListViewController: PokemonListViewController) {
         self.init()
         self.pokemon = pokemon
+        self.pokemonTypes = pokemonTypes
         self.pokemonListViewController = pokemonListViewController
         self.pokemonDetailsViewModel = PokemonDetailsViewModel(pokemon: pokemon, pokemonDetailsViewController: self, pokemonListViewController: pokemonListViewController)
     }
@@ -82,7 +85,7 @@ extension PokemonDetailsViewController {
 extension PokemonDetailsViewController {
     @objc func editButtonTapped() {
         guard let pokemon = pokemon else { return }
-        let editPokemonViewController = NewPokemonViewController(pokemon: pokemon, pokemonListViewController: pokemonListViewController!)
+        let editPokemonViewController = NewPokemonViewController(pokemon: pokemon, pokemonTypes: pokemonTypes, pokemonListViewController: pokemonListViewController!)
         present(editPokemonViewController, animated: true, completion: nil)
     }
 }

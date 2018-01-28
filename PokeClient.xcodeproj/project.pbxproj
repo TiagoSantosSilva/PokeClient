@@ -12,7 +12,7 @@
 		27131D7B201E65A400786303 /* PokemonListViewControllerSelectorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27131D7A201E65A400786303 /* PokemonListViewControllerSelectorExtension.swift */; };
 		27131D7D201E660A00786303 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27131D7C201E660A00786303 /* BaseViewController.swift */; };
 		27131D80201E6AD100786303 /* BaseViewControllerReachabilityExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27131D7F201E6AD100786303 /* BaseViewControllerReachabilityExtension.swift */; };
-		27131D87201E80D700786303 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27131D86201E80D700786303 /* BaseViewModel.swift */; };
+		27131D89201E8A6700786303 /* PokemonType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27131D88201E8A6700786303 /* PokemonType.swift */; };
 		271C1481201D1DD000BCDE18 /* ReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271C1480201D1DD000BCDE18 /* ReachabilityManager.swift */; };
 		276830B520155B250081D792 /* NewPokemonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276830B320155B250081D792 /* NewPokemonViewController.swift */; };
 		276830B620155B250081D792 /* NewPokemonViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 276830B420155B250081D792 /* NewPokemonViewController.xib */; };
@@ -76,7 +76,7 @@
 		27131D7A201E65A400786303 /* PokemonListViewControllerSelectorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonListViewControllerSelectorExtension.swift; sourceTree = "<group>"; };
 		27131D7C201E660A00786303 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		27131D7F201E6AD100786303 /* BaseViewControllerReachabilityExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewControllerReachabilityExtension.swift; sourceTree = "<group>"; };
-		27131D86201E80D700786303 /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
+		27131D88201E8A6700786303 /* PokemonType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonType.swift; sourceTree = "<group>"; };
 		271C1480201D1DD000BCDE18 /* ReachabilityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReachabilityManager.swift; sourceTree = "<group>"; };
 		276830B320155B250081D792 /* NewPokemonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPokemonViewController.swift; sourceTree = "<group>"; };
 		276830B420155B250081D792 /* NewPokemonViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewPokemonViewController.xib; sourceTree = "<group>"; };
@@ -196,7 +196,6 @@
 				278C3DE0201D42F80056DE60 /* NewPokemonViewModel.swift */,
 				27FF964C201DFB0700F4F17F /* PokemonDetailsViewModel.swift */,
 				27FF964E201E3BD400F4F17F /* PokemonListViewModel.swift */,
-				27131D86201E80D700786303 /* BaseViewModel.swift */,
 			);
 			path = "View Models";
 			sourceTree = "<group>";
@@ -407,6 +406,7 @@
 				27FA7428201294A3006D4B04 /* API.swift */,
 				279F590D2014BD3B00539A91 /* Pokemon.swift */,
 				27FA742E2012AD51006D4B04 /* Status.swift */,
+				27131D88201E8A6700786303 /* PokemonType.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -748,13 +748,13 @@
 				279F59152014C24200539A91 /* LoadingScreenViewController.swift in Sources */,
 				27F55980201CF3A200E3FBC9 /* NoConnectionViewController.swift in Sources */,
 				279712862016155200AE513D /* PokemonListViewControllerTableViewExtension.swift in Sources */,
+				27131D89201E8A6700786303 /* PokemonType.swift in Sources */,
 				279F59282015233600539A91 /* PokemonCell.swift in Sources */,
 				27131D79201E656100786303 /* PokemonListViewControllerSetupsExtension.swift in Sources */,
 				27FA742D201295AD006D4B04 /* DataManager.swift in Sources */,
 				279712902016393400AE513D /* PokemonDetailsViewController.swift in Sources */,
 				27131D7D201E660A00786303 /* BaseViewController.swift in Sources */,
 				271C1481201D1DD000BCDE18 /* ReachabilityManager.swift in Sources */,
-				27131D87201E80D700786303 /* BaseViewModel.swift in Sources */,
 				276A5E662012B62C00D538F3 /* DataManagerError.swift in Sources */,
 				2707D04420177D91003AEAE0 /* IntExtension.swift in Sources */,
 				2797128A201615F600AE513D /* PokemonListViewControllerNetworkingExtension.swift in Sources */,
