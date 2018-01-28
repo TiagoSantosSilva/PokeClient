@@ -10,14 +10,14 @@ import Foundation
 
 class LoadingScreenViewModel {
     
-    private var dataManager: DataManager<Status>!
+    private var dataManager: DataManager!
     
     init(loadingScreenViewController: LoadingScreenViewController) {
-        self.dataManager = DataManager<Status>(baseUrl: API.BaseUrl)
+        self.dataManager = DataManager(baseUrl: API.BaseUrl)
     }
     
     func getStatusData(_ completion: @escaping BooleanCompletion) {
-        dataManager.getData(endpoint: API.StatusEndpoint) { (response, error) in
+        dataManager.getData(endpoint: API.StatusEndpoint, Status.self) { (response, error) in
             guard error == nil, let status = response as? Status, status.code == 200 else {
                 completion(false)
                 return

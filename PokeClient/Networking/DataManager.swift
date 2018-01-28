@@ -10,7 +10,7 @@ import Foundation
 
 typealias DataCompletion = (AnyObject?, DataManagerError?) -> ()
 
-final class DataManager<T: Codable> {
+final class DataManager {
     
     let baseUrl: URL
     
@@ -18,16 +18,17 @@ final class DataManager<T: Codable> {
         self.baseUrl = baseUrl
     }
     
-    func getData(endpoint: String, completion: @escaping DataCompletion) {
+    func getData<T: Codable>(endpoint: String, _ type: T.Type, completion: @escaping DataCompletion) {
         
         let requestUrl = baseUrl.appendingPathComponent(endpoint)
         
         URLSession.shared.dataTask(with: requestUrl) { (data, response, error) in
-            self.didFetchData(data: data, response: response, error: error, completion: completion)
-        }.resume()
+            self.didFetchData(data: data, response: response, error: error, T.self, completion: completion)
+            }.resume()
     }
     
-    private func didFetchData(data: Data?, response: URLResponse?, error: Error?, completion: DataCompletion) {
+    
+    private func didFetchData<T: Codable>(data: Data?, response: URLResponse?, error: Error?, _ type: T.Type, completion: DataCompletion) {
         guard error == nil else {
             completion(nil, .FailedRequest)
             return
@@ -44,10 +45,10 @@ final class DataManager<T: Codable> {
             return
         }
         
-        processData(data: data, completion: completion)
+        processData(data: data, T.self, completion: completion)
     }
     
-    private func processData(data: Data, completion: DataCompletion) {
+    private func processData<T: Codable>(data: Data, _ type: T.Type, completion: DataCompletion) {
         guard let dataDecoded = try? JSONDecoder().decode(T.self, from: data) as AnyObject else {
             guard let dataDecoded = try? JSONDecoder().decode([T].self, from: data) as AnyObject else {
                 completion(nil, .InvalidResponse)
@@ -61,7 +62,7 @@ final class DataManager<T: Codable> {
         return
     }
     
-    func postData(endpoint: String, data: Data, method: String, completion: @escaping DataCompletion) {
+    func postData<T: Codable>(endpoint: String, data: Data, method: String, _ type: T.Type, completion: @escaping DataCompletion) {
         let requestUrl = baseUrl.appendingPathComponent(endpoint)
         
         var request = URLRequest(url: requestUrl)
@@ -80,8 +81,8 @@ final class DataManager<T: Codable> {
                 return
             }
             
-            self.processData(data: data, completion: completion)
+            self.processData(data: data, T.self, completion: completion)
             
-        }.resume()
+            }.resume()
     }
 }

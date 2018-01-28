@@ -12,12 +12,11 @@ typealias PokemonListCompletion = ([Pokemon]?) -> ()
 
 class PokemonListViewModel {
     
-    internal var apiClient = ApiClient(baseUrl: API.ImageUrl)
-    internal let dataManager = DataManager<Pokemon>(baseUrl: API.BaseUrl)
-    
+    private var apiClient = ApiClient(baseUrl: API.ImageUrl)
+    private let dataManager = DataManager(baseUrl: API.BaseUrl)
     
     func getData(_ completion: @escaping PokemonListCompletion) {
-        dataManager.getData(endpoint: API.PokemonEndpoint) { (response, error) in
+        dataManager.getData(endpoint: API.PokemonsEndpoint, Pokemon.self) { (response, error) in
             guard let pokemonListFromResponse = response as! [Pokemon]? else {
                 completion(nil)
                 return

@@ -10,10 +10,10 @@ import Foundation
 
 class NewPokemonViewModel {
     
-    internal var dataManager: DataManager<Pokemon>
+    internal var dataManager: DataManager!
     
     init() {
-        dataManager = DataManager<Pokemon>(baseUrl: API.BaseUrl)
+        dataManager = DataManager(baseUrl: API.BaseUrl)
     }
 }
 
@@ -21,9 +21,9 @@ class NewPokemonViewModel {
 extension NewPokemonViewModel {
     private func getRequestEndpointAndMethod(pokemonToSendId: Int?) -> (String, String) {
         guard let pokemonId = pokemonToSendId else {
-            return (endpoint: API.PokemonEndpoint, method: "POST")
+            return (endpoint: API.PokemonsEndpoint, method: "POST")
         }
-        return (endpoint: "\(API.PokemonEndpoint)/\(String(describing: pokemonId))", method: "PUT")
+        return (endpoint: "\(API.PokemonsEndpoint)/\(String(describing: pokemonId))", method: "PUT")
     }
     
     func performRequest(pokemon: Pokemon, _ completion: @escaping PokemonCompletion) {
@@ -49,7 +49,7 @@ extension NewPokemonViewModel {
 // MARK: - Requests
 extension NewPokemonViewModel {
     private func sendPokemonRequest(forRequestEndpoint requestEndpoint: String, data: Data, andRequestMethod requestMethod: String, _ completion: @escaping PokemonCompletion) {
-        dataManager.postData(endpoint: requestEndpoint, data: data, method: requestMethod) { (result, error) in
+        dataManager.postData(endpoint: requestEndpoint, data: data, method: requestMethod, Pokemon.self) { (result, error) in
             guard let pokemon = result as? Pokemon else {
                 // TODO: Present Alert Controller
                 completion(nil)

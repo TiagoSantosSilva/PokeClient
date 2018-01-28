@@ -12,6 +12,7 @@ import Reachability
 class BaseViewController: UIViewController {
     
     internal var reachability: Reachability!
+    internal var pokemonTypes: [String]!
     
     override func viewDidLoad() {
         super.viewDidLoad()

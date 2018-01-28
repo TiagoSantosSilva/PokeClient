@@ -93,7 +93,7 @@ extension NewPokemonViewController {
         guard let name = nameField.text else { return nil }
         guard let height = heightField.text else { return nil }
         guard let weight = weightField.text else { return nil }
-        let type = "Grass"
+        guard let type = typeField.text else { return nil }
         
         let pokemonToReturn = Pokemon(id: pokemon?.id, dexNumber: Int(number), name: name, height: Float(height), weight: Float(weight), type: type)
         return pokemonToReturn
@@ -101,23 +101,47 @@ extension NewPokemonViewController {
 }
 
 // MARK: - Setups
-extension NewPokemonViewController {
+extension NewPokemonViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return pokemonTypes.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return pokemonTypes[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        typeField.text = pokemonTypes[row]
+    }
+    
     internal func setupView() {
         setTextFieldContents()
+        setTypePickerView()
     }
     
     internal func setTextFieldContents() {
-        typeField.text = "SCROLL VIEW PLACEHOLDER"
         guard let pokemon = pokemon else { return }
         
         guard let pokemonNumber = pokemon.dexNumber else { return }
         guard let pokemonName = pokemon.name else { return }
         guard let pokemonHeight = pokemon.height else { return }
         guard let pokemonWeight = pokemon.weight else { return }
+        guard let pokemonType = pokemon.type else { return }
         
         numberField.text = String(describing: pokemonNumber)
         nameField.text = String(describing: pokemonName)
         heightField.text = String(describing: pokemonHeight)
         weightField.text = String(describing: pokemonWeight)
+        typeField.text = String(describing: pokemonType)
+    }
+    
+    internal func setTypePickerView() {
+        let pickerView = UIPickerView()
+        pickerView.delegate = self
+        typeField.inputView = pickerView
     }
 }

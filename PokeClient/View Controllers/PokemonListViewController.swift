@@ -22,6 +22,8 @@ class PokemonListViewController: BaseViewController {
     internal var delayCounter = 0
     internal var finishedLoadingInitialTableCells = false
     
+    // internal var pokemonTypes = [String]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         pokemonListViewModel = PokemonListViewModel()
@@ -32,6 +34,10 @@ class PokemonListViewController: BaseViewController {
         navigationController?.navigationBar.prefersLargeTitles = true
         setupNavigationBar()
         setupTableView()
+        getData()
+    }
+    
+    private func getData() {
         getPokemonData()
     }
     
