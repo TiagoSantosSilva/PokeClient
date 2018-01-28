@@ -8,14 +8,14 @@
 
 import UIKit
 
-extension LoadingScreenViewModel {
+extension LoadingScreenViewController {
     internal func presentNoConnectionAlertController() {
         let noConnectionAlertController = UIAlertController(title: "No Connection", message: "You seem to have no connection to the internet. Please try connecting again.", preferredStyle: .alert)
         noConnectionAlertController.addAction(UIAlertAction(title: "Retry", style: .default, handler: { (handler) in
             self.getStatusData()
         }))
         noConnectionAlertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-        loadingScreenViewController.present(noConnectionAlertController, animated: true, completion: nil)
+        present(noConnectionAlertController, animated: true, completion: nil)
     }
     
     internal func presentServerNotUpAlertController() {
@@ -24,6 +24,6 @@ extension LoadingScreenViewModel {
             self.getStatusData()
         }))
         serverNotUpAlertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-        loadingScreenViewController.present(serverNotUpAlertController, animated: true, completion: nil)
+        present(serverNotUpAlertController, animated: true, completion: nil)
     }
 }

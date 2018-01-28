@@ -20,7 +20,7 @@
 		279712862016155200AE513D /* PokemonListViewControllerTableViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279712852016155200AE513D /* PokemonListViewControllerTableViewExtension.swift */; };
 		27971288201615BC00AE513D /* PokemonListViewControllerUISearchExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27971287201615BC00AE513D /* PokemonListViewControllerUISearchExtension.swift */; };
 		2797128A201615F600AE513D /* PokemonListViewControllerNetworkingExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27971289201615F600AE513D /* PokemonListViewControllerNetworkingExtension.swift */; };
-		2797128D2016165E00AE513D /* LoadingScreenViewModelAlertControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2797128C2016165E00AE513D /* LoadingScreenViewModelAlertControllerExtension.swift */; };
+		2797128D2016165E00AE513D /* LoadingScreenViewControllerAlertControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2797128C2016165E00AE513D /* LoadingScreenViewControllerAlertControllerExtension.swift */; };
 		279712902016393400AE513D /* PokemonDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2797128E2016393400AE513D /* PokemonDetailsViewController.swift */; };
 		279712912016393400AE513D /* PokemonDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2797128F2016393400AE513D /* PokemonDetailsViewController.xib */; };
 		279712932016603400AE513D /* UINavigationControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279712922016603400AE513D /* UINavigationControllerExtension.swift */; };
@@ -81,7 +81,7 @@
 		279712852016155200AE513D /* PokemonListViewControllerTableViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonListViewControllerTableViewExtension.swift; sourceTree = "<group>"; };
 		27971287201615BC00AE513D /* PokemonListViewControllerUISearchExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonListViewControllerUISearchExtension.swift; sourceTree = "<group>"; };
 		27971289201615F600AE513D /* PokemonListViewControllerNetworkingExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonListViewControllerNetworkingExtension.swift; sourceTree = "<group>"; };
-		2797128C2016165E00AE513D /* LoadingScreenViewModelAlertControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingScreenViewModelAlertControllerExtension.swift; sourceTree = "<group>"; };
+		2797128C2016165E00AE513D /* LoadingScreenViewControllerAlertControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingScreenViewControllerAlertControllerExtension.swift; sourceTree = "<group>"; };
 		2797128E2016393400AE513D /* PokemonDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonDetailsViewController.swift; sourceTree = "<group>"; };
 		2797128F2016393400AE513D /* PokemonDetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PokemonDetailsViewController.xib; sourceTree = "<group>"; };
 		279712922016603400AE513D /* UINavigationControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationControllerExtension.swift; sourceTree = "<group>"; };
@@ -226,7 +226,7 @@
 		2797128B2016164700AE513D /* Loading Screen View Model */ = {
 			isa = PBXGroup;
 			children = (
-				2797128C2016165E00AE513D /* LoadingScreenViewModelAlertControllerExtension.swift */,
+				2797128C2016165E00AE513D /* LoadingScreenViewControllerAlertControllerExtension.swift */,
 			);
 			path = "Loading Screen View Model";
 			sourceTree = "<group>";
@@ -767,7 +767,7 @@
 				27FA73F220128FD5006D4B04 /* AppDelegate.swift in Sources */,
 				271C1484201D1F1E00BCDE18 /* NewPokemonViewControllerReachabilityExtension.swift in Sources */,
 				278C3DE1201D42F80056DE60 /* NewPokemonViewModel.swift in Sources */,
-				2797128D2016165E00AE513D /* LoadingScreenViewModelAlertControllerExtension.swift in Sources */,
+				2797128D2016165E00AE513D /* LoadingScreenViewControllerAlertControllerExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

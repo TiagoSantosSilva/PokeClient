@@ -8,6 +8,8 @@
 
 import UIKit
 
+typealias BooleanCompletion = (Bool) -> ()
+
 class LoadingScreenViewController: UIViewController {
     
     private var loadingScreenViewModel: LoadingScreenViewModel!
@@ -23,6 +25,15 @@ class LoadingScreenViewController: UIViewController {
     }
     
     internal func getStatusData() {
-        loadingScreenViewModel.getStatusData()
+        loadingScreenViewModel.getStatusData { (readyToStart) in
+            guard readyToStart else {
+                self.presentServerNotUpAlertController()
+                return
+            }
+            
+            let pokemonListViewController = PokemonListViewController(nibName: "PokemonListViewController", bundle: nil)
+            let navigationController = UINavigationController(rootViewController: pokemonListViewController)
+            self.present(navigationController, animated: true, completion: nil)
+        }
     }
 }

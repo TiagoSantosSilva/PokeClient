@@ -6,33 +6,23 @@
 //  Copyright © 2018 Tiago Santos. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 class LoadingScreenViewModel {
     
     private var dataManager: DataManager<Status>!
-    internal var loadingScreenViewController: LoadingScreenViewController!
     
     init(loadingScreenViewController: LoadingScreenViewController) {
-        self.loadingScreenViewController = loadingScreenViewController
         self.dataManager = DataManager<Status>(baseUrl: API.BaseUrl)
     }
     
-    func getStatusData() {
+    func getStatusData(_ completion: @escaping BooleanCompletion) {
         dataManager.getData(endpoint: API.StatusEndpoint) { (response, error) in
-            guard let status = response as? Status else {
-                self.presentNoConnectionAlertController()
+            guard error == nil, let status = response as? Status, status.code == 200 else {
+                completion(false)
                 return
             }
-            
-            guard status.code == 200 else {
-                self.presentServerNotUpAlertController()
-                return
-            }
-            
-            let pokemonListViewController = PokemonListViewController(nibName: "PokemonListViewController", bundle: nil)
-            let navigationController = UINavigationController(rootViewController: pokemonListViewController)
-            self.loadingScreenViewController.present(navigationController, animated: true, completion: nil)
+            completion(true)
         }
     }
 }
