@@ -11,7 +11,9 @@ import Reachability
 
 class PokemonDetailsViewController: BaseViewController {
 
-    internal var pokemon: Pokemon?
+    internal var pokemonId: Int!
+    internal var pokemon: Pokemon!
+    
     internal var pokemonDetailsViewModel: PokemonDetailsViewModel!
     internal var pokemonListViewController: PokemonListViewController?
     
@@ -23,12 +25,12 @@ class PokemonDetailsViewController: BaseViewController {
     @IBOutlet weak var weightLabel: UILabel!
     @IBOutlet weak var typeLabel: UILabel!
     
-    convenience init(pokemon: Pokemon, pokemonTypes: [PokemonType], pokemonListViewController: PokemonListViewController) {
+    convenience init(pokemonId: Int, pokemonTypes: [PokemonType], pokemonListViewController: PokemonListViewController) {
         self.init()
-        self.pokemon = pokemon
+        self.pokemonId = pokemonId
         self.pokemonTypes = pokemonTypes
         self.pokemonListViewController = pokemonListViewController
-        self.pokemonDetailsViewModel = PokemonDetailsViewModel(pokemon: pokemon, pokemonDetailsViewController: self, pokemonListViewController: pokemonListViewController)
+        self.pokemonDetailsViewModel = PokemonDetailsViewModel(pokemonId: pokemonId, pokemonDetailsViewController: self, pokemonListViewController: pokemonListViewController)
     }
     
     override func viewDidLoad() {
@@ -37,8 +39,12 @@ class PokemonDetailsViewController: BaseViewController {
     }
     
     private func setupViewController() {
-        setupLabels()
-        setupNavigationController()
+        getPokemon { (pokemonFetched) in
+            if pokemonFetched {
+                self.setupLabels()
+            }
+        }
+        self.setupNavigationController()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -65,11 +71,13 @@ extension PokemonDetailsViewController {
         guard let pokemonWeight = pokemon.weight else { return }
         guard let pokemonType = pokemon.type else { return }
         
-        numberLabel.text = String(describing: pokemonNumber)
-        nameLabel.text = String(describing: pokemonName)
-        heightLabel.text = "\(String(describing: pokemonHeight)) m"
-        weightLabel.text = "\(String(describing: pokemonWeight)) kg"
-        typeLabel.text = String(describing: pokemonType)
+        DispatchQueue.main.async {
+            self.numberLabel.text = String(describing: pokemonNumber)
+            self.nameLabel.text = String(describing: pokemonName)
+            self.heightLabel.text = "\(String(describing: pokemonHeight)) m"
+            self.weightLabel.text = "\(String(describing: pokemonWeight)) kg"
+            self.typeLabel.text = String(describing: pokemonType)
+        }
     }
     
     private func setupNavigationController() {

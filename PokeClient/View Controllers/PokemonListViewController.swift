@@ -56,21 +56,21 @@ class PokemonListViewController: BaseViewController {
     
     func pushDetailsView(cell: PokemonCell) {
         
-        guard let tappedPokemon = getTappedPokemon(cell: cell) else {
+        guard let tappedPokemonId = getTappedPokemonId(cell: cell) else {
             // Present Alert Controller
             return
         }
         
-        let pokemonDetailsViewController = PokemonDetailsViewController(pokemon: tappedPokemon, pokemonTypes: pokemonTypes, pokemonListViewController: self)
+        let pokemonDetailsViewController = PokemonDetailsViewController(pokemonId: tappedPokemonId, pokemonTypes: pokemonTypes, pokemonListViewController: self)
         navigationController?.pushViewController(pokemonDetailsViewController, animated: true)
     }
     
-    func getTappedPokemon(cell: PokemonCell) -> Pokemon? {
+    func getTappedPokemonId(cell: PokemonCell) -> Int? {
         let cellIndex = pokemonTableView.indexPath(for: cell)
         guard let index = cellIndex else { return nil }
         
-        guard isFiltering() else { return pokemonList[index.row] }
-        return filteredPokemons[index.row]
+        guard isFiltering() else { return pokemonList[index.row].id }
+        return filteredPokemons[index.row].id
     }
     
     func newPokemonCreated(pokemon: Pokemon) {

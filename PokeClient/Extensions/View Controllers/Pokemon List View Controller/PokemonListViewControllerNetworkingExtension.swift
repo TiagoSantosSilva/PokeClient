@@ -9,11 +9,9 @@
 import UIKit
 
 extension PokemonListViewController {
-    
-    // 🍄 TODO: Get a "light" version of the Pokémon for the list. New request performed when asked for the detail page. 🍄
     internal func getPokemonData() {
         
-        pokemonListViewModel.getData { (pokemonList) in
+        pokemonListViewModel.getPokemons { (pokemonList) in
             guard let pokemonList = pokemonList else { return }
             self.pokemonList = pokemonList
             

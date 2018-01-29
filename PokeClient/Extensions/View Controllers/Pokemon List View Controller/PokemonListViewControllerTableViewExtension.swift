@@ -93,17 +93,8 @@ extension PokemonListViewController {
         }
     }
     
-    // TODO:  Move to ViewModel?
     private func setPokemonNumber(pokemonNumber: Int, pokemonCell: PokemonCell) {
-        var digitCount = pokemonNumber.numberOfDigits()
-        var dexNumberString = "#"
-        
-        while digitCount < 3 {
-            dexNumberString = "\(dexNumberString)0"
-            digitCount += 1
-        }
-        dexNumberString = "\(dexNumberString)\(pokemonNumber)"
-        
+        let dexNumberString = pokemonListViewModel.getDexNumberString(pokemonNumber: pokemonNumber)
         pokemonCell.dexNumberLabel.text = dexNumberString
     }
 }

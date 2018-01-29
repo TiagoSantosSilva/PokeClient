@@ -16,7 +16,7 @@ class PokemonListViewModel {
     private var apiClient = ApiClient(baseUrl: API.ImageUrl)
     private let dataManager = DataManager(baseUrl: API.BaseUrl)
     
-    func getData(_ completion: @escaping PokemonListCompletion) {
+    func getPokemons(_ completion: @escaping PokemonListCompletion) {
         dataManager.getData(endpoint: API.PokemonsEndpoint, [Pokemon].self) { (response, error) in
             guard let pokemonListFromResponse = response as! [Pokemon]? else {
                 completion(nil)
@@ -42,8 +42,19 @@ class PokemonListViewModel {
                 completion(nil)
                 return
             }
-            print(typeListFromResponse)
             completion(typeListFromResponse)
         }
+    }
+    
+    func getDexNumberString(pokemonNumber: Int) -> String {
+        var digitCount = pokemonNumber.numberOfDigits()
+        var dexNumberString = "#"
+        
+        while digitCount < 3 {
+            dexNumberString = "\(dexNumberString)0"
+            digitCount += 1
+        }
+        dexNumberString = "\(dexNumberString)\(pokemonNumber)"
+        return dexNumberString
     }
 }

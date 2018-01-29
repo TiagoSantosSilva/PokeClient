@@ -12,11 +12,26 @@ class PokemonDetailsViewModel {
     
     private var pokemonDetailsViewController: PokemonDetailsViewController!
     private var pokemonListViewController: PokemonListViewController!
-    private var pokemon: Pokemon!
+    private var pokemonId: Int!
     
-    init(pokemon: Pokemon, pokemonDetailsViewController: PokemonDetailsViewController, pokemonListViewController: PokemonListViewController) {
-        self.pokemon = pokemon
+    internal var dataManager: DataManager!
+    
+    init(pokemonId: Int, pokemonDetailsViewController: PokemonDetailsViewController, pokemonListViewController: PokemonListViewController) {
+        self.pokemonId = pokemonId
         self.pokemonDetailsViewController = pokemonDetailsViewController
         self.pokemonListViewController = pokemonListViewController
+        self.dataManager = DataManager(baseUrl: API.BaseUrl)
+    }
+    
+    func getPokemonById(completion: @escaping PokemonCompletion) {
+        guard let pokemonId = pokemonId else { return }
+        let endpoint = "\(API.PokemonsEndpoint)/\(pokemonId)"
+        dataManager.getData(endpoint: endpoint, Pokemon.self) { (result, error) in
+            guard error == nil, result != nil, let pokemon = result as! Pokemon? else {
+                completion(nil)
+                return
+            }
+            completion(pokemon)
+        }
     }
 }
