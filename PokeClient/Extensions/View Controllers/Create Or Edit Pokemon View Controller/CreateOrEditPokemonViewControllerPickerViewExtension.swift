@@ -1,5 +1,5 @@
 //
-//  NewPokemonViewControllerPickerViewExtension.swift
+//  CreateOrEditPokemonViewControllerPickerViewExtension.swift
 //  PokeClient
 //
 //  Created by Tiago Santos on 28/01/18.
