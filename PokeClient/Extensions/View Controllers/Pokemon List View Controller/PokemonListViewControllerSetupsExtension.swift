@@ -44,6 +44,8 @@ extension PokemonListViewController {
         searchController.searchBar.tintColor = #colorLiteral(red: 0.9999960065, green: 1, blue: 1, alpha: 1)
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.scopeButtonTitles = ["All", "Grass", "Fire", "Water"]
+        searchController.searchBar.delegate = self
         navigationItem.searchController = searchController
         definesPresentationContext = true
     }
