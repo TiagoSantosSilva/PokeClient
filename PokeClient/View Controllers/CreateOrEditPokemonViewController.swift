@@ -27,6 +27,9 @@ class CreateOrEditPokemonViewController: BaseViewController {
     @IBOutlet weak var weightField: UITextField!
     @IBOutlet weak var navigationBar: UINavigationBar!
     
+    @IBOutlet weak var cancelButton: UIBarButtonItem!
+    @IBOutlet weak var okButton: UIBarButtonItem!
+    
     convenience init(indexPath: IndexPath, pokemon: Pokemon, pokemonTypes: [PokemonType], pokemonDetailsViewController: PokemonDetailsViewController) {
         self.init()
         self.indexOfPokemonCell = indexPath

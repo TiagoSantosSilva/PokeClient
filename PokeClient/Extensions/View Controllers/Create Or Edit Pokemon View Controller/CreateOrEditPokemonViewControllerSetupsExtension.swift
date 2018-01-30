@@ -12,8 +12,19 @@ import UIKit
 extension CreateOrEditPokemonViewController {
     internal func setupView() {
         setNavigationItemTitle()
+        setNavigationItemButtons()
         setTextFieldContents()
         setTypePickerView()
+    }
+    
+    internal func setNavigationItemButtons() {
+        let fontName = "AvenirNext-DemiBold"
+        let fontSize: CGFloat = 17
+        
+        cancelButton.setTitleTextAttributes([NSAttributedStringKey.foregroundColor: UIColor.white,
+                                              NSAttributedStringKey.font: UIFont(name: fontName, size: fontSize)!], for: .normal)
+        okButton.setTitleTextAttributes([NSAttributedStringKey.foregroundColor: UIColor.white,
+                                              NSAttributedStringKey.font: UIFont(name: fontName, size: fontSize)!], for: .normal)
     }
     
     internal func setNavigationItemTitle() {
