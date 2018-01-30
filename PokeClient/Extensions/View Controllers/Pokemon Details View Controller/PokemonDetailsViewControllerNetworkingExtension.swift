@@ -6,7 +6,7 @@
 //  Copyright © 2018 Tiago Santos. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 extension PokemonDetailsViewController {
     func getPokemon(completion: @escaping BooleanCompletion) {
@@ -16,5 +16,21 @@ extension PokemonDetailsViewController {
             completion(true)
         }
         completion(false)
+    }
+    
+    func setPokemonImage() {
+        pokemonDetailsViewModel.getPokemonImage { (result, error) in
+            guard let result = result else {
+                
+                DispatchQueue.main.async {
+                    self.pokemonImage.image = UIImage(named: "unkown")
+                }
+                return
+            }
+            
+            DispatchQueue.main.async {
+                self.pokemonImage.image = UIImage(data: result)
+            }
+        }
     }
 }

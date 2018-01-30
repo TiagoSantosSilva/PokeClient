@@ -36,7 +36,9 @@ class ApiClient {
     
     func setImageRequestUrl(pokemonNumber: String) -> URL? {
         var baseUri = self.baseUrl.absoluteString
+        
         baseUri = baseUri.replacingOccurrences(of: "pokemon_id", with: pokemonNumber)
+        baseUri = baseUri.replacingOccurrences(of: "pokemon_number", with: pokemonNumber)
         return URL(string: baseUri)!
     }
 }

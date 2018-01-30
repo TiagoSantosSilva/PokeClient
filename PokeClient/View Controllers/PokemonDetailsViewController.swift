@@ -13,7 +13,7 @@ class PokemonDetailsViewController: BaseViewController {
 
     internal var cellIndexPath: IndexPath!
     internal var pokemonId: Int!
-    internal var pokemon: Pokemon!
+    var pokemon: Pokemon!
     
     internal var pokemonDetailsViewModel: PokemonDetailsViewModel!
     internal var pokemonListViewController: PokemonListViewController!
@@ -25,6 +25,9 @@ class PokemonDetailsViewController: BaseViewController {
     @IBOutlet weak var heightLabel: UILabel!
     @IBOutlet weak var weightLabel: UILabel!
     @IBOutlet weak var typeLabel: UILabel!
+    
+    @IBOutlet weak var pokemonImage: UIImageView!
+    
     
     convenience init(indexPath: IndexPath, pokemonId: Int, pokemonTypes: [PokemonType], pokemonListViewController: PokemonListViewController) {
         self.init()
@@ -44,6 +47,7 @@ class PokemonDetailsViewController: BaseViewController {
         getPokemon { (pokemonFetched) in
             if pokemonFetched {
                 self.setupLabels()
+                self.setPokemonImage()
             }
         }
         self.setupNavigationController()
@@ -92,7 +96,9 @@ extension PokemonDetailsViewController {
     
     func pokemonEdited(pokemon: Pokemon) {
         self.pokemon = pokemon
+        pokemonDetailsViewModel.pokemon = pokemon
         setupLabels()
+        setPokemonImage()
         pokemonListViewController.pokemonEdited(pokemon: pokemon, indexPath: cellIndexPath)
     }
 }
