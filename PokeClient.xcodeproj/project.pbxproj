@@ -192,11 +192,11 @@
 		27131D8B201E96E900786303 /* Create Or Edit Pokemon View Controller */ = {
 			isa = PBXGroup;
 			children = (
-				27131D8C201E971E00786303 /* CreateOrEditPokemonViewControllerPickerViewExtension.swift */,
-				27361AF82020D50D000FAA1E /* CreateOrEditPokemonViewControllerIBActionsExtension.swift */,
-				27361AFA2020D553000FAA1E /* CreateOrEditPokemonViewControllerHandlerExtension.swift */,
-				27361AFC2020D588000FAA1E /* CreateOrEditPokemonViewControllerSetupsExtension.swift */,
 				27361AFE2020D5D7000FAA1E /* CreateOrEditPokemonViewControllerGetsExtension.swift */,
+				27361AFA2020D553000FAA1E /* CreateOrEditPokemonViewControllerHandlerExtension.swift */,
+				27361AF82020D50D000FAA1E /* CreateOrEditPokemonViewControllerIBActionsExtension.swift */,
+				27131D8C201E971E00786303 /* CreateOrEditPokemonViewControllerPickerViewExtension.swift */,
+				27361AFC2020D588000FAA1E /* CreateOrEditPokemonViewControllerSetupsExtension.swift */,
 			);
 			path = "Create Or Edit Pokemon View Controller";
 			sourceTree = "<group>";
@@ -260,11 +260,11 @@
 			isa = PBXGroup;
 			children = (
 				27971289201615F600AE513D /* PokemonListViewControllerNetworkingExtension.swift */,
+				27131D7A201E65A400786303 /* PokemonListViewControllerSelectorExtension.swift */,
 				27131D78201E656100786303 /* PokemonListViewControllerSetupsExtension.swift */,
 				279712852016155200AE513D /* PokemonListViewControllerTableViewExtension.swift */,
-				27971287201615BC00AE513D /* PokemonListViewControllerUISearchUpdatingExtension.swift */,
-				27131D7A201E65A400786303 /* PokemonListViewControllerSelectorExtension.swift */,
 				27361B002020E2F5000FAA1E /* PokemonListViewControllerUISearchBarDelegateExtension.swift */,
+				27971287201615BC00AE513D /* PokemonListViewControllerUISearchUpdatingExtension.swift */,
 			);
 			path = "Pokemon List View Controller";
 			sourceTree = "<group>";
@@ -316,8 +316,8 @@
 		279F5923201522F400539A91 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				279F59142014C24200539A91 /* LoadingScreenViewController.xib */,
 				276830B420155B250081D792 /* CreateOrEditPokemonViewController.xib */,
+				279F59142014C24200539A91 /* LoadingScreenViewController.xib */,
 				27F5597F201CF3A200E3FBC9 /* NoConnectionViewController.xib */,
 				2797128F2016393400AE513D /* PokemonDetailsViewController.xib */,
 				279F592B201542E600539A91 /* PokemonListViewController.xib */,
@@ -423,8 +423,8 @@
 			isa = PBXGroup;
 			children = (
 				27131D7C201E660A00786303 /* BaseViewController.swift */,
-				279F59132014C24200539A91 /* LoadingScreenViewController.swift */,
 				276830B320155B250081D792 /* CreateOrEditPokemonViewController.swift */,
+				279F59132014C24200539A91 /* LoadingScreenViewController.swift */,
 				27F5597E201CF3A200E3FBC9 /* NoConnectionViewController.swift */,
 				2797128E2016393400AE513D /* PokemonDetailsViewController.swift */,
 				279F592A201542E600539A91 /* PokemonListViewController.swift */,
