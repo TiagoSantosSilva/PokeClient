@@ -25,6 +25,7 @@ class CreateOrEditPokemonViewController: BaseViewController {
     @IBOutlet weak var numberField: UITextField!
     @IBOutlet weak var typeField: UITextField!
     @IBOutlet weak var weightField: UITextField!
+    @IBOutlet weak var navigationBar: UINavigationBar!
     
     convenience init(indexPath: IndexPath, pokemon: Pokemon, pokemonTypes: [PokemonType], pokemonDetailsViewController: PokemonDetailsViewController) {
         self.init()
@@ -110,8 +111,17 @@ extension CreateOrEditPokemonViewController {
 // MARK: - Setups
 extension CreateOrEditPokemonViewController {    
     internal func setupView() {
+        setNavigationItemTitle()
         setTextFieldContents()
         setTypePickerView()
+    }
+    
+    internal func setNavigationItemTitle() {
+        guard pokemon != nil else {
+            navigationBar.items?.first?.title = "New Pokémon"
+            return
+        }
+        navigationBar.items?.first?.title = "Edit Pokémon"
     }
     
     internal func setTextFieldContents() {
