@@ -16,7 +16,9 @@ class NewPokemonViewController: BaseViewController {
     internal var newPokemonViewModel: NewPokemonViewModel!
     internal var pokemon: Pokemon?
     internal var pokemonListViewController: PokemonListViewController!
+    internal var pokemonDetailsViewController: PokemonDetailsViewController!
     internal var pokemonTypes: [PokemonType]!
+    internal var indexOfPokemonCell: IndexPath!
     
     @IBOutlet weak var heightField: UITextField!
     @IBOutlet weak var nameField: UITextField!
@@ -24,10 +26,11 @@ class NewPokemonViewController: BaseViewController {
     @IBOutlet weak var typeField: UITextField!
     @IBOutlet weak var weightField: UITextField!
     
-    convenience init(pokemon: Pokemon, pokemonTypes: [PokemonType], pokemonListViewController: PokemonListViewController) {
+    convenience init(indexPath: IndexPath, pokemon: Pokemon, pokemonTypes: [PokemonType], pokemonDetailsViewController: PokemonDetailsViewController) {
         self.init()
+        self.indexOfPokemonCell = indexPath
         self.pokemon = pokemon
-        self.pokemonListViewController = pokemonListViewController
+        self.pokemonDetailsViewController = pokemonDetailsViewController
         self.newPokemonViewModel = NewPokemonViewModel()
         self.pokemonTypes = pokemonTypes
     }
@@ -85,7 +88,8 @@ extension NewPokemonViewController {
             self.dismiss(animated: true, completion: nil)
             return
         }
-        self.pokemonListViewController.pokemonEdited(pokemon: pokemonFromRequest)
+        
+        self.pokemonDetailsViewController.pokemonEdited(pokemon: pokemonFromRequest)
         self.dismiss(animated: true, completion: nil)
     }
 }

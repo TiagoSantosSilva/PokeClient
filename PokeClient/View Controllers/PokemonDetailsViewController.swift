@@ -11,11 +11,12 @@ import Reachability
 
 class PokemonDetailsViewController: BaseViewController {
 
+    internal var cellIndexPath: IndexPath!
     internal var pokemonId: Int!
     internal var pokemon: Pokemon!
     
     internal var pokemonDetailsViewModel: PokemonDetailsViewModel!
-    internal var pokemonListViewController: PokemonListViewController?
+    internal var pokemonListViewController: PokemonListViewController!
     
     internal var pokemonTypes: [PokemonType]!
     
@@ -25,8 +26,9 @@ class PokemonDetailsViewController: BaseViewController {
     @IBOutlet weak var weightLabel: UILabel!
     @IBOutlet weak var typeLabel: UILabel!
     
-    convenience init(pokemonId: Int, pokemonTypes: [PokemonType], pokemonListViewController: PokemonListViewController) {
+    convenience init(indexPath: IndexPath, pokemonId: Int, pokemonTypes: [PokemonType], pokemonListViewController: PokemonListViewController) {
         self.init()
+        self.cellIndexPath = indexPath
         self.pokemonId = pokemonId
         self.pokemonTypes = pokemonTypes
         self.pokemonListViewController = pokemonListViewController
@@ -87,13 +89,19 @@ extension PokemonDetailsViewController {
         let editButton = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(editButtonTapped))
         navigationItem.setRightBarButton(editButton, animated: true)
     }
+    
+    func pokemonEdited(pokemon: Pokemon) {
+        self.pokemon = pokemon
+        setupLabels()
+        pokemonListViewController.pokemonEdited(pokemon: pokemon, indexPath: cellIndexPath)
+    }
 }
 
 // MARK: - Selectors
 extension PokemonDetailsViewController {
-    @objc func editButtonTapped() {
+    @objc func editButtonTapped(_ sender: UIBarButtonItem) {
         guard let pokemon = pokemon else { return }
-        let editPokemonViewController = NewPokemonViewController(pokemon: pokemon, pokemonTypes: pokemonTypes, pokemonListViewController: pokemonListViewController!)
+        let editPokemonViewController = NewPokemonViewController(indexPath: cellIndexPath, pokemon: pokemon, pokemonTypes: pokemonTypes, pokemonDetailsViewController: self)
         present(editPokemonViewController, animated: true, completion: nil)
     }
 }

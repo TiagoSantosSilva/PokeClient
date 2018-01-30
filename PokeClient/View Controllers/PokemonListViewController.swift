@@ -61,7 +61,9 @@ class PokemonListViewController: BaseViewController {
             return
         }
         
-        let pokemonDetailsViewController = PokemonDetailsViewController(pokemonId: tappedPokemonId, pokemonTypes: pokemonTypes, pokemonListViewController: self)
+        guard let cellIndexPath = pokemonTableView.indexPath(for: cell) else { return }
+        
+        let pokemonDetailsViewController = PokemonDetailsViewController(indexPath: cellIndexPath, pokemonId: tappedPokemonId, pokemonTypes: pokemonTypes, pokemonListViewController: self)
         navigationController?.pushViewController(pokemonDetailsViewController, animated: true)
     }
     
@@ -82,6 +84,8 @@ class PokemonListViewController: BaseViewController {
     
     // TODO: - Get Cell of pokemon By Id
     // Pull into this View Controller?
-    func pokemonEdited(pokemon: Pokemon) {
+    func pokemonEdited(pokemon: Pokemon, indexPath: IndexPath) {
+        pokemonList[indexPath.row] = pokemon
+        pokemonTableView.reloadData()
     }
 }
