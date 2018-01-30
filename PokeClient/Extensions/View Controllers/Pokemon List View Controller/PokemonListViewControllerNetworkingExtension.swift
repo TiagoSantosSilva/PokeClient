@@ -27,4 +27,15 @@ extension PokemonListViewController {
             self.pokemonTypes = pokemonTypeList
         }
     }
+    
+    internal func loadPaginatedData() {
+        pokemonListViewModel.getPokemons({ (pokemons) in
+            
+            guard let pokemons = pokemons else { return }
+            for pokemon in pokemons {
+                self.pokemonList.append(pokemon)
+            }
+            self.pokemonTableView.reloadData()
+        })
+    }
 }

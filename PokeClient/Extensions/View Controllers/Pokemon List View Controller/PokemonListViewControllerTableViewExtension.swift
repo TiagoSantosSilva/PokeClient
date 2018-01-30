@@ -45,6 +45,10 @@ extension PokemonListViewController: UITableViewDataSource, UITableViewDelegate 
             let tableViewHeight = pokemonTableView.bounds.size.height
             animateCellLoad(cell, tableViewHeight)
         }
+        
+        if indexPath.row == pokemonList.count - 1 {
+            loadPaginatedData()
+        }
     }
 }
 
