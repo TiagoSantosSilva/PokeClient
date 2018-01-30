@@ -8,7 +8,7 @@
 
 import UIKit
 
-extension NewPokemonViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+extension CreateOrEditPokemonViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }

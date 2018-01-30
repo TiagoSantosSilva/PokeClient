@@ -10,7 +10,7 @@ import Foundation
 
 extension PokemonListViewController {
     @objc internal func newPokemonButtonTapped() {
-        let newPokemonViewController = NewPokemonViewController(pokemonTypes: pokemonTypes, pokemonListViewController: self)
+        let newPokemonViewController = CreateOrEditPokemonViewController(pokemonTypes: pokemonTypes, pokemonListViewController: self)
         present(newPokemonViewController, animated: true, completion: nil)
     }
 }

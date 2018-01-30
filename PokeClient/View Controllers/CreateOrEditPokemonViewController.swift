@@ -11,7 +11,7 @@ import Reachability
 
 typealias PokemonCompletion = (Pokemon?) -> ()
 
-class NewPokemonViewController: BaseViewController {
+class CreateOrEditPokemonViewController: BaseViewController {
     
     internal var newPokemonViewModel: NewPokemonViewModel!
     internal var pokemon: Pokemon?
@@ -61,7 +61,7 @@ class NewPokemonViewController: BaseViewController {
 }
 
 // MARK: - IBActions
-extension NewPokemonViewController {
+extension CreateOrEditPokemonViewController {
     @IBAction func cancelButtonTapped(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
@@ -72,7 +72,7 @@ extension NewPokemonViewController {
 }
 
 // MARK: - Handlers
-extension NewPokemonViewController {
+extension CreateOrEditPokemonViewController {
     internal func createOrEditPokemon() {
         guard let pokemonInView = getPokemonInViewData() else { return }
         
@@ -94,7 +94,7 @@ extension NewPokemonViewController {
     }
 }
 
-extension NewPokemonViewController {
+extension CreateOrEditPokemonViewController {
     internal func getPokemonInViewData() -> Pokemon? {
         guard let number = numberField.text else { return nil }
         guard let name = nameField.text else { return nil }
@@ -108,7 +108,7 @@ extension NewPokemonViewController {
 }
 
 // MARK: - Setups
-extension NewPokemonViewController {    
+extension CreateOrEditPokemonViewController {    
     internal func setupView() {
         setTextFieldContents()
         setTypePickerView()

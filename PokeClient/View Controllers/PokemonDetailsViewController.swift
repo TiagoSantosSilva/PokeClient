@@ -101,7 +101,7 @@ extension PokemonDetailsViewController {
 extension PokemonDetailsViewController {
     @objc func editButtonTapped(_ sender: UIBarButtonItem) {
         guard let pokemon = pokemon else { return }
-        let editPokemonViewController = NewPokemonViewController(indexPath: cellIndexPath, pokemon: pokemon, pokemonTypes: pokemonTypes, pokemonDetailsViewController: self)
+        let editPokemonViewController = CreateOrEditPokemonViewController(indexPath: cellIndexPath, pokemon: pokemon, pokemonTypes: pokemonTypes, pokemonDetailsViewController: self)
         present(editPokemonViewController, animated: true, completion: nil)
     }
 }
