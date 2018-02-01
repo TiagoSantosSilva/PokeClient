@@ -17,22 +17,19 @@ extension PokemonListViewController {
     func handleLinkQuery(query: String?) {
         guard let query = query else { return }
         
-        if query.contains("pokemon_number=") {
+        if query.contains(UrlQueries.pokemonNumber) {
             handlePokemonNumberQuery(query: query)
             // return
         }
         
-        if query.contains("pokemon_filter=") {
+        if query.contains(UrlQueries.pokemonFilter) {
             handlePokemonFilterQuery(query: query)
             // return
         }
     }
     
     func handlePokemonNumberQuery(query: String) {
-        
-        //TODO: - Call a single view model function.
-        guard let pokemonNumber = pokemonListViewModel.getDataFromQuery(contentToRemove: "pokemon_number=", query: query) else { return }
-        guard let pokemonNumberAsDexNumber = pokemonListViewModel.getPokemonIdAsPokedexNumberFromQuery(pokemonIdFromQuery: pokemonNumber) else { return }
+        guard let pokemonNumberAsDexNumber = pokemonListViewModel.getPokemonNumberFromUrlQuery(contentToRemove: UrlQueries.pokemonNumber, query: query) else { return }
         
         guard let pokemonCellToPush = getPokemonCellByPokemonDexNumber(pokemonNumberAsDexNumber: pokemonNumberAsDexNumber) else { return }
         guard let pokemonId = getTappedPokemonId(cell: pokemonCellToPush) else { return }
@@ -44,7 +41,7 @@ extension PokemonListViewController {
     
     // TODO
     func handlePokemonFilterQuery(query: String) {
-        guard let filter = pokemonListViewModel.getDataFromQuery(contentToRemove: "pokemon_filter=", query: query) else { return }
+        guard let filter = pokemonListViewModel.getDataFromQuery(contentToRemove: UrlQueries.pokemonFilter, query: query) else { return }
         
     }
     

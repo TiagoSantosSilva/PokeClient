@@ -46,6 +46,12 @@ class PokemonListViewModel {
         }
     }
     
+    func getPokemonNumberFromUrlQuery(contentToRemove: String, query: String) -> String? {
+        guard let pokemonNumber = getDataFromQuery(contentToRemove: "pokemon_number=", query: query) else { return nil }
+        guard let pokemonNumberAsDexNumber = getPokemonIdAsPokedexNumberFromQuery(pokemonIdFromQuery: pokemonNumber) else { return nil }
+        return pokemonNumberAsDexNumber
+    }
+    
     func getDexNumberString(pokemonNumber: Int) -> String {
         var digitCount = pokemonNumber.numberOfDigits()
         var dexNumberString = "#"
