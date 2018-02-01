@@ -18,19 +18,22 @@ extension PokemonListViewController {
         guard let query = query else { return }
         
         if query.contains("pokemon_number=") {
-            handlePokemonNumberQuery(query: "pokemon_number")
-            return
+            handlePokemonNumberQuery(query: query)
+            // return
         }
         
         if query.contains("pokemon_filter=") {
-            handlePokemonFilterQuery(query: "pokemon_filter=")
-            return
+            handlePokemonFilterQuery(query: query)
+            // return
         }
     }
     
     func handlePokemonNumberQuery(query: String) {
+        
+        //TODO: - Call a single view model function.
         guard let pokemonNumber = pokemonListViewModel.getDataFromQuery(contentToRemove: "pokemon_number=", query: query) else { return }
         guard let pokemonNumberAsDexNumber = pokemonListViewModel.getPokemonIdAsPokedexNumberFromQuery(pokemonIdFromQuery: pokemonNumber) else { return }
+        
         guard let pokemonCellToPush = getPokemonCellByPokemonDexNumber(pokemonNumberAsDexNumber: pokemonNumberAsDexNumber) else { return }
         guard let pokemonId = getTappedPokemonId(cell: pokemonCellToPush) else { return }
         guard let cellIndexPath = pokemonTableView.indexPath(for: pokemonCellToPush) else { return }
@@ -39,6 +42,7 @@ extension PokemonListViewController {
         navigationController?.pushViewController(pokemonDetailsViewController, animated: true)
     }
     
+    // TODO
     func handlePokemonFilterQuery(query: String) {
         guard let filter = pokemonListViewModel.getDataFromQuery(contentToRemove: "pokemon_filter=", query: query) else { return }
         
