@@ -13,4 +13,8 @@ extension PokemonListViewController {
         let newPokemonViewController = CreateOrEditPokemonViewController(pokemonTypes: pokemonTypes, pokemonListViewController: self)
         present(newPokemonViewController, animated: true, completion: nil)
     }
+    
+    @objc func urlOpened(notification: Notification) {
+        print("Url opened")
+    }
 }

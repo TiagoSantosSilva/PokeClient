@@ -51,18 +51,14 @@ class PokemonListViewController: BaseViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        NotificationCenter.default.removeObserver(self, name: Notification.Name("openUrl"), object: nil)
+        addObservers()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        NotificationCenter.default.addObserver(self, selector: #selector(urlOpened), name: Notification.Name("openUrl"), object: nil)
+        removeObservers()
     }
-    
-    @objc func urlOpened(notification: Notification) {
-        print("Url opened")
-    }
-    
+        
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
