@@ -57,4 +57,33 @@ class PokemonListViewModel {
         dexNumberString = "\(dexNumberString)\(pokemonNumber)"
         return dexNumberString
     }
+    
+    func getDataFromQuery(contentToRemove: String, query: String) -> String? {
+        let pokemonNumber = query.replacingOccurrences(of: "pokemon_number=", with: "")
+        return pokemonNumber
+    }
+    
+    func getPokemonIdAsPokedexNumber(url: URL) -> String? {
+        guard let pokemonIdFromQuery = getPokemonNumberFromUrlQuery(url.query) else { return nil }
+        
+        guard let pokemonIdAsInt = Int(pokemonIdFromQuery) else { return nil }
+        let pokemonIdAsDexNumber = getDexNumberString(pokemonNumber: pokemonIdAsInt)
+        return pokemonIdAsDexNumber
+    }
+    
+    
+    fileprivate func getPokemonNumberFromUrlQuery(_ urlQuery: String?) -> String? {
+        
+        guard let urlQuery = urlQuery else { return nil }
+        var pokemonId: String? = nil
+        
+        switch urlQuery.contains("pokemon_number") {
+        case true:
+            pokemonId = getDataFromQuery(contentToRemove: "pokemon_number=", query: urlQuery)
+            break
+        default:
+            break
+        }
+        return pokemonId
+    }
 }

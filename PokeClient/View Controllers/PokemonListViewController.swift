@@ -49,63 +49,6 @@ class PokemonListViewController: BaseViewController {
         getPokemonTypes()
     }
     
-    fileprivate func getPokemonNumberFromUrlQuery(_ urlQuery: String?) -> String? {
-        
-        guard let urlQuery = urlQuery else { return nil }
-        var pokemonId: String? = nil
-        
-        switch urlQuery.contains("pokemon_number") {
-        case true:
-            pokemonId = getDataFromQuery(contentToRemove: "pokemon_number=", query: urlQuery)
-            break
-        default:
-            break
-        }
-        return pokemonId
-    }
-    
-    func getDataFromQuery(contentToRemove: String, query: String) -> String? {
-        let pokemonNumber = query.replacingOccurrences(of: "pokemon_number=", with: "")
-        return pokemonNumber
-    }
-    
-    func getPokemonIdAsPokedexNumber(url: URL) -> String? {
-        guard let pokemonIdFromQuery = getPokemonNumberFromUrlQuery(url.query) else { return nil }
-        
-        guard let pokemonIdAsInt = Int(pokemonIdFromQuery) else { return nil }
-        let pokemonIdAsDexNumber = pokemonListViewModel.getDexNumberString(pokemonNumber: pokemonIdAsInt)
-        return pokemonIdAsDexNumber
-    }
-    
-    func getPokemonCellByPokemonDexNumber(pokemonIdAsDexNumber: String) -> PokemonCell? {
-        for cell in pokemonTableView.visibleCells {
-            guard let pokemonCell = cell as? PokemonCell else {
-                //TODO: - Alert Controller
-                return nil
-            }
-            if pokemonCell.dexNumberLabel.text == pokemonIdAsDexNumber {
-                return pokemonCell
-            }
-        }
-        return nil
-    }
-    
-    func handleUrl() {
-        guard let url = urlUsedToOpenApp else { return }
-        guard let pokemonIdAsDexNumber = getPokemonIdAsPokedexNumber(url: url) else { return }
-        guard let pokemonCellToPush = getPokemonCellByPokemonDexNumber(pokemonIdAsDexNumber: pokemonIdAsDexNumber) else { return }
-        
-        guard let pokemonId = getTappedPokemonId(cell: pokemonCellToPush) else {
-            //TODO: - Alert Controller
-            return
-        }
-        
-        guard let cellIndexPath = pokemonTableView.indexPath(for: pokemonCellToPush) else { return }
-        
-        let pokemonDetailsViewController = PokemonDetailsViewController(indexPath: cellIndexPath, pokemonId: pokemonId, pokemonTypes: pokemonTypes, pokemonListViewController: self)
-        navigationController?.pushViewController(pokemonDetailsViewController, animated: true)
-    }
-    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         NotificationCenter.default.removeObserver(self, name: Notification.Name("openUrl"), object: nil)
@@ -152,10 +95,32 @@ class PokemonListViewController: BaseViewController {
         pokemonTableView.scrollToRow(at: newPokemonIndexPath, at: .bottom, animated: false)
     }
     
-    // TODO: - Get Cell of pokemon By Id
-    // Pull into this View Controller?
     func pokemonEdited(pokemon: Pokemon, indexPath: IndexPath) {
         pokemonList[indexPath.row] = pokemon
         pokemonTableView.reloadData()
+    }
+    
+    func handleUrl() {
+        guard let url = urlUsedToOpenApp else { return }
+        guard let pokemonIdAsDexNumber = pokemonListViewModel.getPokemonIdAsPokedexNumber(url: url) else { return }
+        guard let pokemonCellToPush = getPokemonCellByPokemonDexNumber(pokemonIdAsDexNumber: pokemonIdAsDexNumber) else { return }
+        guard let pokemonId = getTappedPokemonId(cell: pokemonCellToPush) else { return }
+        guard let cellIndexPath = pokemonTableView.indexPath(for: pokemonCellToPush) else { return }
+        
+        let pokemonDetailsViewController = PokemonDetailsViewController(indexPath: cellIndexPath, pokemonId: pokemonId, pokemonTypes: pokemonTypes, pokemonListViewController: self)
+        navigationController?.pushViewController(pokemonDetailsViewController, animated: true)
+    }
+    
+    func getPokemonCellByPokemonDexNumber(pokemonIdAsDexNumber: String) -> PokemonCell? {
+        for cell in pokemonTableView.visibleCells {
+            guard let pokemonCell = cell as? PokemonCell else {
+                //TODO: - Alert Controller
+                return nil
+            }
+            if pokemonCell.dexNumberLabel.text == pokemonIdAsDexNumber {
+                return pokemonCell
+            }
+        }
+        return nil
     }
 }
