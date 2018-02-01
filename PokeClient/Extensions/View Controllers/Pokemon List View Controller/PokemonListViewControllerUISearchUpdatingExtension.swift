@@ -9,17 +9,17 @@
 import UIKit
 
 extension PokemonListViewController: UISearchResultsUpdating {
-    func updateSearchResults(for searchController: UISearchController) {
+    internal func updateSearchResults(for searchController: UISearchController) {
         let searchBar = searchController.searchBar
         let scope = searchBar.scopeButtonTitles![searchBar.selectedScopeButtonIndex]
         filterContentForSearchText(searchController.searchBar.text!, scope: scope)
     }
     
-    func searchBarIsEmpty() -> Bool {
+    internal func searchBarIsEmpty() -> Bool {
         return searchController.searchBar.text?.isEmpty ?? true
     }
     
-    func filterContentForSearchText(_ searchText: String, scope: String = "All") {
+    internal func filterContentForSearchText(_ searchText: String, scope: String = "All") {
         filteredPokemons = pokemonList.filter({ (pokemon: Pokemon) -> Bool in
             let doesCategoryMatch = (scope == "All") || (pokemon.type == scope)
             
@@ -33,7 +33,7 @@ extension PokemonListViewController: UISearchResultsUpdating {
         pokemonTableView.reloadData()
     }
     
-    func isFiltering() -> Bool {
+    internal func isFiltering() -> Bool {
         let searchBarScopeIsFiltering = searchController.searchBar.selectedScopeButtonIndex != 0
         return searchController.isActive && (!searchBarIsEmpty() || searchBarScopeIsFiltering)
     }

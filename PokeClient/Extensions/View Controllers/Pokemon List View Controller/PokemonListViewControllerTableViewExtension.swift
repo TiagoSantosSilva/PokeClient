@@ -63,7 +63,7 @@ extension PokemonListViewController {
         delayCounter += 1
     }
     
-    func checkIfCellIsLastInitialDisplayableCell(indexPath: IndexPath) -> Bool {
+    internal func checkIfCellIsLastInitialDisplayableCell(indexPath: IndexPath) -> Bool {
         guard !finishedLoadingInitialTableCells else { return false }
         guard let indexPathForVisibleRows = pokemonTableView.indexPathsForVisibleRows,
             let lastIndexPath = indexPathForVisibleRows.last,
@@ -74,7 +74,7 @@ extension PokemonListViewController {
 
 // MARK: - Gets
 extension PokemonListViewController {
-    func getPokemonToCell(indexPath: IndexPath) -> Pokemon {
+    internal func getPokemonToCell(indexPath: IndexPath) -> Pokemon {
         guard isFiltering() else { return pokemonList[indexPath.row] }
         return filteredPokemons[indexPath.row]
     }

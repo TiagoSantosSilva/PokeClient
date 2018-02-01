@@ -99,28 +99,4 @@ class PokemonListViewController: BaseViewController {
         pokemonList[indexPath.row] = pokemon
         pokemonTableView.reloadData()
     }
-    
-    func handleUrl() {
-        guard let url = urlUsedToOpenApp else { return }
-        guard let pokemonIdAsDexNumber = pokemonListViewModel.getPokemonIdAsPokedexNumber(url: url) else { return }
-        guard let pokemonCellToPush = getPokemonCellByPokemonDexNumber(pokemonIdAsDexNumber: pokemonIdAsDexNumber) else { return }
-        guard let pokemonId = getTappedPokemonId(cell: pokemonCellToPush) else { return }
-        guard let cellIndexPath = pokemonTableView.indexPath(for: pokemonCellToPush) else { return }
-        
-        let pokemonDetailsViewController = PokemonDetailsViewController(indexPath: cellIndexPath, pokemonId: pokemonId, pokemonTypes: pokemonTypes, pokemonListViewController: self)
-        navigationController?.pushViewController(pokemonDetailsViewController, animated: true)
-    }
-    
-    func getPokemonCellByPokemonDexNumber(pokemonIdAsDexNumber: String) -> PokemonCell? {
-        for cell in pokemonTableView.visibleCells {
-            guard let pokemonCell = cell as? PokemonCell else {
-                //TODO: - Alert Controller
-                return nil
-            }
-            if pokemonCell.dexNumberLabel.text == pokemonIdAsDexNumber {
-                return pokemonCell
-            }
-        }
-        return nil
-    }
 }
