@@ -14,6 +14,13 @@ class LoadingScreenViewController: BaseViewController {
     
     private var loadingScreenViewModel: LoadingScreenViewModel!
     
+    private var urlUsedToOpenApp: URL?
+    
+    convenience init(url: URL?) {
+        self.init()
+        self.urlUsedToOpenApp = url
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         loadingScreenViewModel = LoadingScreenViewModel(loadingScreenViewController: self)
@@ -31,7 +38,7 @@ class LoadingScreenViewController: BaseViewController {
                 return
             }
             
-            let pokemonListViewController = PokemonListViewController(nibName: "PokemonListViewController", bundle: nil)
+            let pokemonListViewController = PokemonListViewController(url: self.urlUsedToOpenApp)
             let navigationController = UINavigationController(rootViewController: pokemonListViewController)
             self.present(navigationController, animated: true, completion: nil)
         }

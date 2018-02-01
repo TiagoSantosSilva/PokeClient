@@ -6,7 +6,7 @@
 //  Copyright © 2018 Tiago Santos. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 extension PokemonListViewController {
     @objc internal func newPokemonButtonTapped() {

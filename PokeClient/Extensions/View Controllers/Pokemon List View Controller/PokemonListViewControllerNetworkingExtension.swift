@@ -17,6 +17,7 @@ extension PokemonListViewController {
             
             DispatchQueue.main.async {
                 self.pokemonTableView.reloadData()
+                self.handleUrl()
             }
         }
     }

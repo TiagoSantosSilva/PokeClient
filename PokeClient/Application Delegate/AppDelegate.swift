@@ -12,17 +12,25 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var openUrl: URL?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         AppearanceConfigurations.configureUITextFields()
-        let loadingScreenViewController = LoadingScreenViewController()
-        self.window?.rootViewController = loadingScreenViewController        
+        
+        let url = getUrl(launchOptions: launchOptions)
+        let loadingScreenViewController = LoadingScreenViewController(url: url)
+        self.window?.rootViewController = loadingScreenViewController
         return true
     }
     
+    func getUrl(launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> URL? {
+        guard let launchOptions = launchOptions else { return nil }
+        guard let url = launchOptions[.url] as! URL? else { return nil }
+        return url
+    }
+    
     func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
-//        let url = url.standardized
-//        let query = url.query
+        NotificationCenter.default.post(name: Notification.Name("openUrl"), object: url)
         return true
     }
 

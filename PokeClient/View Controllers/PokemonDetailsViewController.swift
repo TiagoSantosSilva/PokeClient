@@ -11,7 +11,7 @@ import Reachability
 
 class PokemonDetailsViewController: BaseViewController {
 
-    internal var cellIndexPath: IndexPath!
+    var cellIndexPath: IndexPath!
     internal var pokemonId: Int!
     var pokemon: Pokemon!
     
@@ -40,7 +40,27 @@ class PokemonDetailsViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let delegate = UIApplication.shared.delegate as? AppDelegate
+        // if let url = delegate?.url
+        if let url = delegate?.openUrl {
+            print("🚨: \(url.description)")
+            delegate?.openUrl = nil
+        }
         setupViewController()
+    }
+    
+    func addUrLObserver() {
+        NotificationCenter.default.addObserver(self, selector: #selector(handleOpenUrl), name: NSNotification.Name(rawValue: "handleOpenUrl"), object: nil)
+    }
+    
+    @objc func handleOpenUrl(notification: Notification) {
+        if let url = notification.object as? URL {
+            print("👍: \(url.description)")
+        }
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: "handleOpenUrl"), object: nil)
     }
     
     private func setupViewController() {

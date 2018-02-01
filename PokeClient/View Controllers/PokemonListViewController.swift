@@ -24,6 +24,13 @@ class PokemonListViewController: BaseViewController {
     
     internal var pokemonTypes = [PokemonType]()
     
+    internal var urlUsedToOpenApp: URL?
+    
+    convenience init(url: URL?) {
+        self.init()
+        self.urlUsedToOpenApp = url
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         pokemonListViewModel = PokemonListViewModel()
@@ -42,12 +49,75 @@ class PokemonListViewController: BaseViewController {
         getPokemonTypes()
     }
     
+    fileprivate func getPokemonNumberFromUrlQuery(_ urlQuery: String?) -> String? {
+        
+        guard let urlQuery = urlQuery else { return nil }
+        var pokemonId: String? = nil
+        
+        switch urlQuery.contains("pokemon_number") {
+        case true:
+            pokemonId = getDataFromQuery(contentToRemove: "pokemon_number=", query: urlQuery)
+            break
+        default:
+            break
+        }
+        return pokemonId
+    }
+    
+    func getDataFromQuery(contentToRemove: String, query: String) -> String? {
+        let pokemonNumber = query.replacingOccurrences(of: "pokemon_number=", with: "")
+        return pokemonNumber
+    }
+    
+    func handleUrl() {
+        
+        guard let url = urlUsedToOpenApp else {
+            return
+        }
+        
+        guard let pokemonIdFromQuery = getPokemonNumberFromUrlQuery(url.query) else { return }
+        
+        guard let pokemonIdAsInt = Int(pokemonIdFromQuery) else { return }
+        let pokemonIdAsDexNumber = pokemonListViewModel.getDexNumberString(pokemonNumber: pokemonIdAsInt)
+        
+        var pokemonCellToPush: PokemonCell?
+        
+        for cell in pokemonTableView.visibleCells {
+            guard let pokemonCell = cell as? PokemonCell else {
+                //TODO: - Alert Controller
+                return
+            }
+            if pokemonCell.dexNumberLabel.text == pokemonIdAsDexNumber {
+                pokemonCellToPush = pokemonCell
+                break
+            }
+        }
+        
+        guard pokemonCellToPush != nil else {
+            //TODO: - Alert Controller
+            return
+        }
+        guard let pokemonId = getTappedPokemonId(cell: pokemonCellToPush!) else {
+            //TODO: - Alert Controller
+            return
+        }
+        
+        let pokemonDetailsViewController = PokemonDetailsViewController(indexPath: pokemonTableView.indexPath(for: pokemonCellToPush!)!, pokemonId: pokemonId, pokemonTypes: pokemonTypes, pokemonListViewController: self)
+        navigationController?.pushViewController(pokemonDetailsViewController, animated: true)
+    }
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        NotificationCenter.default.removeObserver(self, name: Notification.Name("openUrl"), object: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        NotificationCenter.default.addObserver(self, selector: #selector(urlOpened), name: Notification.Name("openUrl"), object: nil)
+    }
+    
+    @objc func urlOpened(notification: Notification) {
+        print("Url opened")
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
