@@ -69,40 +69,40 @@ class PokemonListViewController: BaseViewController {
         return pokemonNumber
     }
     
-    func handleUrl() {
+    func getPokemonIdAsPokedexNumber(url: URL) -> String? {
+        guard let pokemonIdFromQuery = getPokemonNumberFromUrlQuery(url.query) else { return nil }
         
-        guard let url = urlUsedToOpenApp else {
-            return
-        }
-        
-        guard let pokemonIdFromQuery = getPokemonNumberFromUrlQuery(url.query) else { return }
-        
-        guard let pokemonIdAsInt = Int(pokemonIdFromQuery) else { return }
+        guard let pokemonIdAsInt = Int(pokemonIdFromQuery) else { return nil }
         let pokemonIdAsDexNumber = pokemonListViewModel.getDexNumberString(pokemonNumber: pokemonIdAsInt)
-        
-        var pokemonCellToPush: PokemonCell?
-        
+        return pokemonIdAsDexNumber
+    }
+    
+    func getPokemonCellByPokemonDexNumber(pokemonIdAsDexNumber: String) -> PokemonCell? {
         for cell in pokemonTableView.visibleCells {
             guard let pokemonCell = cell as? PokemonCell else {
                 //TODO: - Alert Controller
-                return
+                return nil
             }
             if pokemonCell.dexNumberLabel.text == pokemonIdAsDexNumber {
-                pokemonCellToPush = pokemonCell
-                break
+                return pokemonCell
             }
         }
+        return nil
+    }
+    
+    func handleUrl() {
+        guard let url = urlUsedToOpenApp else { return }
+        guard let pokemonIdAsDexNumber = getPokemonIdAsPokedexNumber(url: url) else { return }
+        guard let pokemonCellToPush = getPokemonCellByPokemonDexNumber(pokemonIdAsDexNumber: pokemonIdAsDexNumber) else { return }
         
-        guard pokemonCellToPush != nil else {
+        guard let pokemonId = getTappedPokemonId(cell: pokemonCellToPush) else {
             //TODO: - Alert Controller
             return
         }
-        guard let pokemonId = getTappedPokemonId(cell: pokemonCellToPush!) else {
-            //TODO: - Alert Controller
-            return
-        }
         
-        let pokemonDetailsViewController = PokemonDetailsViewController(indexPath: pokemonTableView.indexPath(for: pokemonCellToPush!)!, pokemonId: pokemonId, pokemonTypes: pokemonTypes, pokemonListViewController: self)
+        guard let cellIndexPath = pokemonTableView.indexPath(for: pokemonCellToPush) else { return }
+        
+        let pokemonDetailsViewController = PokemonDetailsViewController(indexPath: cellIndexPath, pokemonId: pokemonId, pokemonTypes: pokemonTypes, pokemonListViewController: self)
         navigationController?.pushViewController(pokemonDetailsViewController, animated: true)
     }
     
