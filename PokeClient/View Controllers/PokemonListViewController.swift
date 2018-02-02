@@ -51,14 +51,14 @@ class PokemonListViewController: BaseViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        addObservers()
+        removeObservers()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        removeObservers()
+        addObservers()
     }
-        
+    
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }

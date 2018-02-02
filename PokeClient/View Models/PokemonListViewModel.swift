@@ -47,7 +47,7 @@ class PokemonListViewModel {
     }
     
     func getPokemonNumberFromUrlQuery(contentToRemove: String, query: String) -> String? {
-        guard let pokemonNumber = getDataFromQuery(contentToRemove: "pokemon_number=", query: query) else { return nil }
+        guard let pokemonNumber = getDataFromQuery(contentToRemove: contentToRemove, query: query) else { return nil }
         guard let pokemonNumberAsDexNumber = getPokemonIdAsPokedexNumberFromQuery(pokemonIdFromQuery: pokemonNumber) else { return nil }
         return pokemonNumberAsDexNumber
     }
@@ -65,7 +65,7 @@ class PokemonListViewModel {
     }
     
     func getDataFromQuery(contentToRemove: String, query: String) -> String? {
-        let queryParamater = query.replacingOccurrences(of: "pokemon_number=", with: "")
+        let queryParamater = query.replacingOccurrences(of: contentToRemove, with: "")
         return queryParamater
     }
     

@@ -43,7 +43,7 @@ class PokemonDetailsViewController: BaseViewController {
         let delegate = UIApplication.shared.delegate as? AppDelegate
         // if let url = delegate?.url
         if let url = delegate?.openUrl {
-            print("🚨: \(url.description)")
+            print("🔴: \(url.description)")
             delegate?.openUrl = nil
         }
         setupViewController()
@@ -55,7 +55,7 @@ class PokemonDetailsViewController: BaseViewController {
     
     @objc func handleOpenUrl(notification: Notification) {
         if let url = notification.object as? URL {
-            print("👍: \(url.description)")
+            print("🔴: \(url.description)")
         }
     }
     

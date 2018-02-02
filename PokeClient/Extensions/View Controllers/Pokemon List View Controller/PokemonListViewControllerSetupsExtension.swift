@@ -46,8 +46,14 @@ extension PokemonListViewController {
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.scopeButtonTitles = ["All", "Grass", "Fire", "Water"]
         searchController.searchBar.delegate = self
+        
+        searchController.isActive = true
         navigationItem.searchController = searchController
         definesPresentationContext = true
+    }
+    
+    func didPresentSearchController(_ searchController: UISearchController) {
+        searchController.searchBar.becomeFirstResponder()
     }
     
     internal func addNewPokemonButton() {

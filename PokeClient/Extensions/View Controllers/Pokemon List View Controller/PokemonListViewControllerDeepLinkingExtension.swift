@@ -19,12 +19,12 @@ extension PokemonListViewController {
         
         if query.contains(UrlQueries.pokemonNumber) {
             handlePokemonNumberQuery(query: query)
-            // return
+            return
         }
         
         if query.contains(UrlQueries.pokemonFilter) {
             handlePokemonFilterQuery(query: query)
-            // return
+            return
         }
     }
     
@@ -42,7 +42,8 @@ extension PokemonListViewController {
     // TODO
     func handlePokemonFilterQuery(query: String) {
         guard let filter = pokemonListViewModel.getDataFromQuery(contentToRemove: UrlQueries.pokemonFilter, query: query) else { return }
-        
+        searchController.isActive = true
+        searchController.searchBar.text = filter
     }
     
     internal func getPokemonCellByPokemonDexNumber(pokemonNumberAsDexNumber: String) -> PokemonCell? {
