@@ -2,7 +2,7 @@
 
 Uses [PokeApi](https://github.com/TiagoSantosSilva/PokeApi) as the REST service.
 
-### Screenshots (WIP)
+### Screenshots
 
 ![Screenshot 1](https://github.com/TiagoSantosSilva/PokeClient/blob/master/Screenshots/PokeClient%201.png)
 ![Screenshot 2](https://github.com/TiagoSantosSilva/PokeClient/blob/master/Screenshots/PokeClient%202.png)
